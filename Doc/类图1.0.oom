@@ -1470,7 +1470,7 @@ Shadow=0</a:DisplayPreferences>
 <o:AssociationSymbol Id="o6">
 <a:CreationDate>1397918748</a:CreationDate>
 <a:ModificationDate>1397919161</a:ModificationDate>
-<a:Rect>((-10483,8290), (14370,10422))</a:Rect>
+<a:Rect>((-10483,8289), (14370,10423))</a:Rect>
 <a:ListOfPoints>((-10083,9432),(13970,9282))</a:ListOfPoints>
 <a:CornerStyle>3</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
@@ -1512,7 +1512,7 @@ SOURCE 0 新宋体,8,N</a:FontList>
 <o:AssociationSymbol Id="o13">
 <a:CreationDate>1397918759</a:CreationDate>
 <a:ModificationDate>1397919154</a:ModificationDate>
-<a:Rect>((-11896,-10657), (-8194,9832))</a:Rect>
+<a:Rect>((-12009,-10657), (-8081,9832))</a:Rect>
 <a:ListOfPoints>((-10083,9432),(-10007,-10257))</a:ListOfPoints>
 <a:CornerStyle>3</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
@@ -1533,7 +1533,7 @@ SOURCE 0 新宋体,8,N</a:FontList>
 <o:AssociationSymbol Id="o16">
 <a:CreationDate>1397918761</a:CreationDate>
 <a:ModificationDate>1397919152</a:ModificationDate>
-<a:Rect>((-10407,-11350), (14281,-9254))</a:Rect>
+<a:Rect>((-10407,-11351), (14281,-9253))</a:Rect>
 <a:ListOfPoints>((-10007,-10257),(13881,-10345))</a:ListOfPoints>
 <a:CornerStyle>3</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
@@ -1554,7 +1554,7 @@ SOURCE 0 新宋体,8,N</a:FontList>
 <o:AssociationSymbol Id="o18">
 <a:CreationDate>1397918763</a:CreationDate>
 <a:ModificationDate>1397919161</a:ModificationDate>
-<a:Rect>((12034,-10745), (15817,9682))</a:Rect>
+<a:Rect>((11922,-10745), (15929,9682))</a:Rect>
 <a:ListOfPoints>((13970,9282),(13881,-10345))</a:ListOfPoints>
 <a:CornerStyle>3</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
