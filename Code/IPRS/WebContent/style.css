@@ -1,0 +1,182 @@
+.floatWindow {
+	width: 500px;
+	height: 400px;
+	border: 1px solid #6CF;
+	position: fixed;
+	right: 1%;
+	top: 20%;
+	background: #FFF
+}
+
+.isHidden {
+	visibility: hidden;
+}
+
+.lWindow {
+	position: fixed;
+	top: 25%;
+	right: 15%;
+	float: right;
+	width: 300px;
+	height: 200px;
+}
+
+.rWindow {
+	position: fixed;
+	top: 25%;
+	right: 15%;
+	float: right;
+	width: 300px;
+	height: 400px;
+}
+
+.c1 {
+	background: #FFF;
+}
+
+.c2 {
+	background: #ECC4A0;
+}
+
+.c3 {
+	background: rgb(185, 122, 87);
+}
+
+.c4 {
+	background: rgb(204, 156, 133);
+}
+
+.c5 {
+	background: rgb(228, 228, 228);
+}
+
+.c6 {
+	background: #FC6;
+}
+
+.loginTopics{
+	position: absolute;
+	left:-700px;
+	width:600px;
+	height:100px;
+}
+
+.popLoginArea {
+	width: 150px;
+	padding-left: 10px;
+	position: relative;
+	height: 20px;
+}
+
+.popLogin-inner {
+	position: relative;
+	width: 240px;
+	height: 38px;
+	margin: 6px 0;
+	background: #fff;
+	border-top: 1px solid #8b8b8b;
+	border-left: 1px solid #8b8b8b;
+	border-right: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	z-index: 9
+}
+
+.inputFieldStyle {
+	position: absolute;
+	left: 90px;
+	height: 22px;
+	line-height: 22px;
+	padding: 0;
+	margin: 0;
+	color: #030303;
+	font-size: 14px;
+	border: 0 none;
+	background: 0;
+	z-index: 99;
+}
+
+.iField1 {
+	top: 19px;
+}
+
+.iField2 {
+	top: 75px;
+}
+
+.iField3 {
+	top: 131px;
+}
+
+.iField4 {
+	top: 187px;
+}
+
+.pswCheckMsg {
+	position:absolute;
+	left:260px;
+	top:128px;
+	padding:0;
+	margin:0;
+	width:100px;
+	height:20px;	 
+}
+
+.usnCheckMsg {
+	position:absolute;
+	left:260px;
+	top:16px;
+	padding:0;
+	margin:0;
+	width:100px;
+	height:20px;	 
+}
+
+.popLogin-inputText {
+	position: absolute;
+	top: 9px;
+	left: 11px;
+	height: 22px;
+	line-height: 22px;
+	padding: 0;
+	margin: 0;
+	color: #030303;
+	font-size: 14px;
+	border: 0 none;
+	background: 0;
+	z-index: 99;
+}
+
+.lrButton {
+	position: absolute;
+	width: 140px;
+	height: 41px;
+	background: url(icos/loginButton.jpg);
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+
+.leftButton {
+	left: 5px;
+}
+
+.rightButton {
+	left: 150px;
+}
+
+.bUrl1 {
+	background: url(icos/loginButton.jpg);
+}
+
+.bUrl2 {
+	background: url(icos/quickRegisterButton.jpg);
+}
+
+.bUrl3 {
+	background: url(icos/registerButton.jpg);
+}
+
+.bUrl4 {
+	background: url(icos/backToLoginButton.jpg);
+}
