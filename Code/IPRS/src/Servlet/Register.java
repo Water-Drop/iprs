@@ -79,6 +79,6 @@ public class Register extends HttpServlet {
 				// TODO 登陆失败后的处理
 			}
 		}
-		// other condition
+		// other condition, do nothing
 	}
 }

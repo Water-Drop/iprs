@@ -6,8 +6,6 @@ import javax.ejb.TransactionAttributeType;
 
 import Util.XMLParser;
 
-//import iprs.Model.Security;
-
 @Stateless
 @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 public class AccountBean {
