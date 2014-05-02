@@ -54,11 +54,15 @@
 	background: #FC6;
 }
 
-.loginTopics{
+.c7 {
+	background: rgb(163, 141, 132);
+}
+
+.loginTopics {
 	position: absolute;
-	left:-700px;
-	width:600px;
-	height:100px;
+	left: -700px;
+	width: 600px;
+	height: 100px;
 }
 
 .popLoginArea {
@@ -112,23 +116,23 @@
 }
 
 .pswCheckMsg {
-	position:absolute;
-	left:260px;
-	top:128px;
-	padding:0;
-	margin:0;
-	width:100px;
-	height:20px;	 
+	position: absolute;
+	left: 260px;
+	top: 128px;
+	padding: 0;
+	margin: 0;
+	width: 100px;
+	height: 20px;
 }
 
 .usnCheckMsg {
-	position:absolute;
-	left:260px;
-	top:16px;
-	padding:0;
-	margin:0;
-	width:100px;
-	height:20px;	 
+	position: absolute;
+	left: 260px;
+	top: 16px;
+	padding: 0;
+	margin: 0;
+	width: 100px;
+	height: 20px;
 }
 
 .popLogin-inputText {
@@ -180,3 +184,53 @@
 .bUrl4 {
 	background: url(icos/backToLoginButton.jpg);
 }
+
+/* Css for mainPage.html Below*/
+
+.mainArea {
+	position: absolute;
+	right: 50%;
+	top: 0;
+	width: 1000px;
+	height: 100%;
+	margin: 0 -500px 0 0;
+}
+
+
+.userActArea {
+	width: 250px;
+	height: 100%;
+	float: left;
+}
+
+.actArea {
+	width: 750px;
+	min-height: 100%;
+	float: right
+}
+
+.paperActArea {
+	width: 250px;
+	float: left;
+	height:285px;
+}
+
+.reviewActArea{
+width:250px;
+float:left;
+height:120px;
+}
+
+.prAct-Title{
+	width:250px;
+	float:left;
+	height:65px;
+}
+
+.prAct-Op{
+width:170px;
+float:left;
+height:55px;
+padding-left:80px;
+}
+
