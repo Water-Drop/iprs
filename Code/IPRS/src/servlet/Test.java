@@ -4,11 +4,14 @@ import util.HttpHelper;
 
 import java.io.IOException;
 
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import ejb.AccountBean;
 
 //import servlet 
 
@@ -18,7 +21,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/Test")
 public class Test extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	@EJB
+	AccountBean account = new AccountBean();
     /**
      * @see HttpServlet#HttpServlet()
      */

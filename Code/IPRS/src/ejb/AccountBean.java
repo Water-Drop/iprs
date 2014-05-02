@@ -27,34 +27,37 @@ public class AccountBean {
 		return ret;
 	}
 	
-	public boolean check(String username, String password)
+	public User check(String username, String password)
 	{
-		boolean ret = false;
+		User ret = null;
 		HttpHelper hhp = new HttpHelper();
 		String url = domain + "iprs/User/?User.Username=" + username;
 		String resultXML = hhp.SendHttpRequest("get", url, null);
 		List<User> us = User.parseXML(resultXML);
 		if (us.size() == 0)
-			ret = false;
+			ret = null;
 		else if (us.get(0).getPassword().equals(password))
-			ret = true;
+		{
+			ret = us.get(0);
+			ret.setPassword("");
+		}
 		return ret;
 	}
 	
-	public boolean add(String username, String password)
+	public int add(String username, String password, String email)
 	{
-		boolean ret = false;
-		if (isExist(username) || password == null || password.length() < 6)
-			return ret;
+		if (isExist(username) || password == null || password.length() < 6 || email == null)
+			return 1;
+		// User
 		XMLParser xp = new XMLParser("post");
 		xp.add("set", "this.Username", username);
 		xp.add("set", "this.Password", password);
+		xp.add("set", "this.Email", email);
 		String xmlBody = xp.getXML();
 		HttpHelper hhp = new HttpHelper();
 		String url = domain + "iprs/User/";
 		String resultXML = hhp.SendHttpRequest("post", url, xmlBody);
-		// TODO Process resultXML
 		System.out.println(resultXML);
-		return ret;
+		return 0;
 	}
 }

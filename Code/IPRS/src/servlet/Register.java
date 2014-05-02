@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.User;
 import ejb.AccountBean;
 
 @WebServlet("/Register")
@@ -57,7 +58,8 @@ public class Register extends HttpServlet {
 		{
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
-			if (account.check(username, password))
+			User user = account.check(username, password);
+			if (user != null)
 			{
 		        // TODO 登陆成功后的处理
 			}
@@ -70,7 +72,8 @@ public class Register extends HttpServlet {
 		{
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
-			if (account.add(username, password))
+			String email = request.getParameter("email");
+			if (0 == account.add(username, password, email))
 			{
 		        // TODO 登陆成功后的处理
 			}

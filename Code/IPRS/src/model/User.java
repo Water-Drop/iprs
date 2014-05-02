@@ -13,6 +13,7 @@ public class User {
 	private String uri;
 	private String Username;
 	private String Password;
+	private String Email;
 	
 	public String getUri() {
 		return uri;
@@ -32,6 +33,12 @@ public class User {
 	public void setPassword(String password) {
 		Password = password;
 	}
+	public String getEmail() {
+		return Email;
+	}
+	public void setEmail(String email) {
+		Email = email;
+	}
 	
 	static public List<User> parseXML(String xml)
 	{
@@ -49,10 +56,12 @@ public class User {
 	        	Element userUri = userE.getChild("uri");
 	        	Element userName = userE.getChild("Username");
 	        	Element userPW = userE.getChild("Password");
+	        	Element userMail = userE.getChild("Email");
 	        	User userM = new User();
 	        	userM.setUri(userUri.getText());
 	        	userM.setUsername(userName.getText());
 	        	userM.setPassword(userPW.getText());
+	        	userM.setEmail(userMail.getText());
 	        	ret.add(userM);
 	        }
 		} catch (Exception e) {
