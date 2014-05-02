@@ -1,6 +1,6 @@
 package model;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Paper {
 	private String uri;
@@ -10,7 +10,7 @@ public class Paper {
 	private Integer Status;
 	private Date LMTime;
 	private String Uid;
-	private String Path;
+	private String Location;
 	
 	public String getUri() {
 		return uri;
@@ -54,10 +54,10 @@ public class Paper {
 	public void setUid(String uid) {
 		Uid = uid;
 	}
-	public String getPath() {
-		return Path;
+	public String getLocation() {
+		return Location;
 	}
-	public void setPath(String path) {
-		Path = path;
+	public void setLocation(String location) {
+		Location = location;
 	}
 }
