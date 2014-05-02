@@ -1,6 +1,6 @@
-package iprs.web;
+package servlet;
 
-import iprs.util.HttpHelper;
+import util.HttpHelper;
 
 import java.io.IOException;
 
@@ -9,6 +9,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+//import servlet 
 
 /**
  * Servlet implementation class Test
@@ -46,7 +48,6 @@ public class Test extends HttpServlet {
 				+ "</Operation-set><Operation-set><Target>this.Password</Target><Value>Mpas</Value></Operation-set></PUT>";
 		System.out.println(ph.SendHttpRequest("PUT", url2, xm2));
 		System.out.println(ph.SendHttpRequest("GET", url, xml));
-		
 	}
 
 	/**

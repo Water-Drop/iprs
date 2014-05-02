@@ -2,7 +2,7 @@
 //  Date    : May 1, 2014
 //  Register servlet
 
-package Servlet;
+package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import EJB.AccountBean;
+import ejb.AccountBean;
 
 @WebServlet("/Register")
 public class Register extends HttpServlet {

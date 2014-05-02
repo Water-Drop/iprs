@@ -1,4 +1,4 @@
-package iprs.util;
+package util;
 
 import java.io.IOException;  
 import org.apache.commons.httpclient.*;  
@@ -7,6 +7,7 @@ import org.apache.commons.httpclient.methods.*;
 public class HttpHelper {
 	public String SendHttpRequest(String type, String url, String xml){
 		String ResponseBody = "";
+		type = type.toUpperCase();
 		if (type.equalsIgnoreCase("GET")){
 			GetMethod get = new GetMethod(url);
 			get.setRequestHeader("Content-type", "application/xml");
@@ -55,5 +56,4 @@ public class HttpHelper {
 		}
 		return ResponseBody;
 	}
-
 }

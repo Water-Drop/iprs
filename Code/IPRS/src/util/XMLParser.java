@@ -1,4 +1,5 @@
-package Util;
+package util;
+
 public class XMLParser {
 	private String type = null;
 	private String data = null;
