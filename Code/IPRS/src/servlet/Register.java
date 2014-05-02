@@ -8,11 +8,13 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.ejb.EJB;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.User;
 import ejb.AccountBean;
@@ -61,11 +63,15 @@ public class Register extends HttpServlet {
 			User user = account.check(username, password);
 			if (user != null)
 			{
-		        // TODO 登陆成功后的处理
+				HttpSession ses = request.getSession(true);
+				ses.setAttribute("username", username);
+				RequestDispatcher rd = request.getRequestDispatcher("mainPage.html");
+				rd.forward(request, response);
 			}
 			else
 			{
-				// TODO 登陆失败后的处理
+				RequestDispatcher rd = request.getRequestDispatcher("loginFail.html");
+				rd.forward(request, response);
 			}
 		}
 		else if (type.equals("register"))
@@ -75,11 +81,24 @@ public class Register extends HttpServlet {
 			String email = request.getParameter("email");
 			if (0 == account.add(username, password, email))
 			{
-		        // TODO 登陆成功后的处理
+				User user = account.check(username, password);
+				if (user == null)
+				{
+					RequestDispatcher rd = request.getRequestDispatcher("loginFail.html");
+					rd.forward(request, response);
+				}
+				else
+				{
+					HttpSession ses = request.getSession(true);
+					ses.setAttribute("username", username);
+					RequestDispatcher rd = request.getRequestDispatcher("mainPage.html");
+					rd.forward(request, response);
+				}
 			}
 			else
 			{
-				// TODO 登陆失败后的处理
+				RequestDispatcher rd = request.getRequestDispatcher("registFail.html");
+				rd.forward(request, response);
 			}
 		}
 		// other condition, do nothing
