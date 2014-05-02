@@ -58,6 +58,14 @@
 	background: rgb(163, 141, 132);
 }
 
+.cBackground1 {
+	background: rgb(204, 156, 133);
+}
+
+.cFocus1 {
+	background: #CCC;
+}
+
 .loginTopics {
 	position: absolute;
 	left: -700px;
@@ -154,7 +162,6 @@
 	position: absolute;
 	width: 140px;
 	height: 41px;
-	background: url(icos/loginButton.jpg);
 	border-top-style: none;
 	border-right-style: none;
 	border-bottom-style: none;
@@ -186,7 +193,6 @@
 }
 
 /* Css for mainPage.html Below*/
-
 .mainArea {
 	position: absolute;
 	right: 50%;
@@ -196,11 +202,41 @@
 	margin: 0 -500px 0 0;
 }
 
-
 .userActArea {
 	width: 250px;
 	height: 100%;
 	float: left;
+}
+
+.pInfoArea {
+	width: 250px;
+	float: left;
+	height: 65px;
+}
+
+.paperActArea {
+	width: 250px;
+	float: left;
+	height: 285px;
+}
+
+.reviewActArea {
+	width: 250px;
+	float: left;
+	height: 120px;
+}
+
+.prAct-Title {
+	width: 250px;
+	float: left;
+	height: 65px;
+}
+
+.prAct-Op {
+	width: 170px;
+	float: left;
+	height: 55px;
+	padding-left: 80px;
 }
 
 .actArea {
@@ -209,28 +245,8 @@
 	float: right
 }
 
-.paperActArea {
-	width: 250px;
-	float: left;
-	height:285px;
-}
-
-.reviewActArea{
-width:250px;
-float:left;
-height:120px;
-}
-
-.prAct-Title{
-	width:250px;
+.pInfo {
+	width:750px;
 	float:left;
-	height:65px;
-}
-
-.prAct-Op{
-width:170px;
-float:left;
-height:55px;
-padding-left:80px;
 }
 
