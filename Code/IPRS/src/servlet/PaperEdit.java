@@ -35,7 +35,7 @@ public class PaperEdit extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String pid = request.getParameter("pid");
 		Paper paper = paperBean.get(pid);
-		RequestDispatcher rd = request.getRequestDispatcher("paperEdit.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("paperModify.jsp");
 		request.setAttribute("paper", paper);
 		rd.forward(request, response);
 	}
@@ -43,6 +43,8 @@ public class PaperEdit extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Paper
 		Paper paper = new Paper();
+		String uri = request.getParameter("uri");
+		paper.setUri(uri);
 		String title = request.getParameter("title");
 		if (title == null) {
 			PrintWriter out = response.getWriter();
@@ -52,7 +54,7 @@ public class PaperEdit extends HttpServlet {
         	return ;
 		}
 		paper.setTitle(title);
-		String abstra = request.getParameter("abstract");
+		String abstra = request.getParameter("abstra");
 		if (abstra == null) {
 			PrintWriter out = response.getWriter();
 			out.write("Error : Abstract is empty.");
@@ -61,15 +63,6 @@ public class PaperEdit extends HttpServlet {
         	return ;
 		}
 		paper.setAbstract(abstra);
-		String cid = request.getParameter("cid");
-		if (cid == null) {
-			PrintWriter out = response.getWriter();
-			out.write("Error : Cid is empty.");
-       		out.flush();
-        	out.close();
-        	return ;
-		}
-		paper.setCid(cid);
 		String status = request.getParameter("status");
 		if (status == null) {
 			PrintWriter out = response.getWriter();
@@ -81,19 +74,10 @@ public class PaperEdit extends HttpServlet {
 		paper.setStatus(Integer.parseInt(status));
 		Date lmTime = new Date();
 		paper.setLMTime(lmTime);
-		String uid = request.getParameter("uid");
-		if (uid == null) {
-			PrintWriter out = response.getWriter();
-			out.write("Error : Uid is empty.");
-       		out.flush();
-        	out.close();
-        	return ;
-		}
-		paper.setUid(uid);
-		String location = request.getParameter("location");
+		String location = request.getParameter("loc");
 		if (location == null) {
 			PrintWriter out = response.getWriter();
-			out.write("Error : Uid is empty.");
+			out.write("Error : Loc is empty.");
        		out.flush();
         	out.close();
         	return ;

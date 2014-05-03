@@ -7,7 +7,6 @@
 package ejb;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -17,8 +16,8 @@ import javax.ejb.TransactionAttributeType;
 import model.Authors;
 import model.Keywords;
 import model.Paper;
-import util.XMLParser;
 import util.HttpHelper;
+import util.XMLParser;
 
 @Stateless
 @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
@@ -85,6 +84,7 @@ public class PaperBean {
 		String resultXML = HttpHelper.SendHttpRequest("get", url, null);
 		System.out.println(resultXML);
 		List<Paper> ps = Paper.parseXML(resultXML);
+		System.out.println(ps);
 		return ps;
 	}
 	
@@ -102,11 +102,9 @@ public class PaperBean {
 		String url = domain + paper.getUri();
 		xp.add("set", "this.Title", paper.getTitle());
 		xp.add("set", "this.Abstract", paper.getAbstract());
-		xp.add("set", "this.Cid", paper.getCid());
 		int s = paper.getStatus() > 0 ? paper.getStatus() : ((-1) * paper.getStatus());
 		xp.add("set", "this.Status", String.valueOf(s));
 		xp.add("set", "this.LMTime", paper.getLMTime().toString());
-		xp.add("set", "this.Uid", paper.getUid());
 		xp.add("set", "this.Location", paper.getLocation());
 		HttpHelper.SendHttpRequest("put", url, xp.getXML());
 		return 0;

@@ -36,6 +36,9 @@ function pSubmit() {
 			keyword1:kywrd1.value,
 			keyword2:kywrd2.value,
 			location:loc
+			},
+			function(data){
+				alert(data.trim());
 			});
 	}
 

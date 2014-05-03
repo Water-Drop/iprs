@@ -82,6 +82,7 @@ public class PaperCreate extends HttpServlet {
 		}
 		paper.setUid(uid);
 		String location = request.getParameter("location");
+		System.out.println("WATER DROP IS HERE: ->" + location);
 		if (location == null) {
 			PrintWriter out = response.getWriter();
 			out.write("Error : Uid is empty.");
