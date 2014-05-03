@@ -8,7 +8,7 @@
 <script type="text/javascript" src="js/AjaxFileUploader/ajaxfileupload.js"></script>
 <script type="text/javascript">
 
-var location = null;
+var loc = null;
 
 function pSubmit() {
 	var pTitle = document.getElementById("pTitle");
@@ -35,18 +35,18 @@ function pSubmit() {
 			keyword0:kywrd0.value,
 			keyword1:kywrd1.value,
 			keyword2:kywrd2.value,
-			location:location
+			location:loc
 			});
 	}
 
 function uploadFile() {
     $.ajaxFileUpload({
-        url: "http://localhost:12798/api/File",
+        url: "http://test.ldsink.com/api/File",
         secureuri: false,
         fileElementId: 'file',
         dataType: 'xml',
         success: function (data, status) {
-        	location = data;
+        	loc = data;
         },
         error: function (data, status, e) {
             alert("论文上传失败！");

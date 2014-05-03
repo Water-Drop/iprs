@@ -8,7 +8,6 @@
 <script type="text/javascript">
 	window.onload = function() {
 		var uId =document.getElementById("uri").value.replace("iprs/User/", "");
-		alert(1);
 		$.post("PaperSearch",
 				{
 				type:"getUid",
