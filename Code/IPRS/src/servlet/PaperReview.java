@@ -81,7 +81,7 @@ public class PaperReview extends HttpServlet {
 				out.print("<td>" + dts.get(i).getTid() + "</td>");
 				out.print("<td>" + dts.get(i).getTitle() + "</td>");
 				if (0 == dts.get(i).getIsEdit())
-					out.print("<td><input type='button' value='ÉóÔÄ' onclick=''></td>");
+					out.print("<td><input type='button' value='ÉóÔÄ' onclick='review(\"" + dts.get(i).getTid() + "\");'></td>");
 				else
 					out.print("<td>²»¿ÉÉóÔÄ</td>");
 				out.print("<td><input type='button' value='ÏÂÔØ' onclick='window.location.href=\""

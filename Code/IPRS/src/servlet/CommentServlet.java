@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -55,6 +56,7 @@ public class CommentServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Processing Comment Servlet");
 		String type = request.getParameter("type");
 		if("add".equalsIgnoreCase(type)){
 			String tid = request.getParameter("tid");
@@ -62,6 +64,9 @@ public class CommentServlet extends HttpServlet {
 			int rate = Integer.parseInt(request.getParameter("rate"));
 			int confidence = Integer.parseInt(request.getParameter("confidence"));
 			com.add(tid, content, rate, confidence);
+			PrintWriter out = response.getWriter();
+			out.println("Success!");
+			System.out.println("SUCCESS!");
 		}
 		else if ("modify".equalsIgnoreCase(type)){
 			String uri = request.getParameter("uri");
@@ -70,6 +75,8 @@ public class CommentServlet extends HttpServlet {
 			int confidence = Integer.parseInt(request.getParameter("confidence"));
 			com.modify(uri, content, rate, confidence);
 		} else {
+			PrintWriter out = response.getWriter();
+			out.println("fail!");
 			
 		}
 	}
