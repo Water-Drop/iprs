@@ -47,4 +47,10 @@ private String domain = "http://59.78.3.25:8080/RMP/Entity/";
 		}
 		return 0;
 	}
+	public List<Task> getTaskbyUser(String uid){
+		String url = domain + "iprs/Task/?Task.Uid=" + uid;
+		String resultXML = HttpHelper.SendHttpRequest("get", url, null);
+		List<Task> ts = Task.parseXML(resultXML);
+		return ts;
+	}
 }
