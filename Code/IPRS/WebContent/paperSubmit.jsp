@@ -10,7 +10,7 @@ function pSubmit() {
 	var pTitle = document.getElementById("pTitle");
 	var abstr = document.getElementById("pAbstract");
 	var pCid = document.getElementById("pConf");
-	var uId = document.getElementById("uri").value.replace("iprs/Papers/", "");
+	var uId = document.getElementById("uri").value.replace("iprs/User/", "");
 	var kywrd0 = document.getElementById("pKeyword0");
 	var kywrd1 = document.getElementById("pKeyword1");
 	var kywrd2 = document.getElementById("pKeyword2");
