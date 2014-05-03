@@ -78,19 +78,39 @@ public class PaperBean {
 
 	public int edit(Paper paper)
 	{
-		// Withdraw
-		if (-1 == paper.getStatus())
-		{
-			XMLParser xp = new XMLParser("put");
-			xp.add("set", "this.Status", "-1");
-			String xmlBody = xp.getXML();
-			String url = domain + paper.getUri();
-			HttpHelper.SendHttpRequest("put", url, xmlBody);
-			return 0;
-		}
-		// edit
-//		else if (-2 == paper.getStatus())
-//		{}
-		return -1;
+		XMLParser xp = new XMLParser("put");
+		String url = domain + paper.getUri();
+		xp.add("set", "this.Title", paper.getTitle());
+		xp.add("set", "this.Abstract", paper.getAbstract());
+		xp.add("set", "this.Cid", paper.getCid());
+		int s = paper.getStatus() > 0 ? paper.getStatus() : ((-1) * paper.getStatus());
+		xp.add("set", "this.Status", String.valueOf(s));
+		xp.add("set", "this.LMTime", paper.getLMTime().toString());
+		xp.add("set", "this.Uid", paper.getUid());
+		xp.add("set", "this.Location", paper.getLocation());
+		HttpHelper.SendHttpRequest("put", url, xp.getXML());
+		return 0;
+	}
+	
+	public int withdraw(String pid)
+	{
+		XMLParser xp = new XMLParser("put");
+		xp.add("set", "this.Status", "-10");
+		String url = domain + "iprs/Paper/" + pid;
+		HttpHelper.SendHttpRequest("put", url, xp.getXML());
+		return 0;
+	}
+	
+	public int lock(String pid)
+	{
+		String url = domain + "iprs/Paper/" + pid;
+		String resultXML = HttpHelper.SendHttpRequest("get", url, null);
+		List<Paper> ps = Paper.parseXML(resultXML);
+		XMLParser xp = new XMLParser("put");
+		int s = ps.get(0).getStatus();
+		s = (s > 0) ? s : -s;
+		xp.add("set", "this.Status", String.valueOf(s));
+		HttpHelper.SendHttpRequest("put", url, xp.getXML());
+		return 0;
 	}
 }
