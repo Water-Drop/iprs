@@ -1,12 +1,10 @@
 package ejb;
 
 import java.util.List;
-import java.util.ArrayList;
 
 import javax.ejb.Stateless;
 
 import model.User;
-import util.XMLParser;
 import util.HttpHelper;
 
 @Stateless

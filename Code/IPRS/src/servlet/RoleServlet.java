@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Conference;
-import model.Role;
 import model.User;
 import ejb.RoleBean;
 import ejb.UserBean;

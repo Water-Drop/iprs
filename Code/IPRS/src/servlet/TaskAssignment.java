@@ -22,7 +22,6 @@ import javax.servlet.http.HttpServletResponse;
 import ejb.TaskBean;
 import ejb.PaperBean;
 import ejb.UserBean;
-import model.Conference;
 import model.Task;
 import model.Paper;
 import model.User;
