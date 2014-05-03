@@ -12,6 +12,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,25 +20,42 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import ejb.TaskBean;
+import ejb.PaperBean;
+import ejb.UserBean;
+import model.Conference;
 import model.Task;
+import model.Paper;
+import model.User;
 
 @WebServlet("/TaskAssignment")
 public class TaskAssignment extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	@EJB
+	private PaperBean pb;
+	@EJB
+	private UserBean ub;
+	
     
     public TaskAssignment() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		processRequest(request, response);
+		List<User> users = ub.getAllUsers();
+		request.setAttribute("userlist", users);
+		System.out.println(users);
+		List<Paper> papers = pb.getAll();
+		for (int i = 0, j = papers.size(); i < j; i++){
+			if (papers.get(i).getStatus() < 0){
+				papers.remove(i);
+			}
+			}
+		request.setAttribute("paperlist", papers);
+
+		request.getRequestDispatcher("AssignmentTask.jsp").forward(request,response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		processRequest(request, response);
-	}
-	
-	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Task> ts = new ArrayList<Task>();
 		String pid = request.getParameter("pid");
 		for (int i = 1; i <= 5; i ++)
@@ -73,4 +91,5 @@ public class TaskAssignment extends HttpServlet {
         	return ;
 		}
 	}
+		
 }

@@ -61,7 +61,8 @@ public class User {
 	        	userM.setUri(userUri.getText());
 	        	userM.setUsername(userName.getText());
 	        	userM.setPassword(userPW.getText());
-	        	userM.setEmail(userMail.getText());
+	        	if (userMail != null){
+	        	userM.setEmail(userMail.getText());}
 	        	ret.add(userM);
 	        }
 		} catch (Exception e) {
