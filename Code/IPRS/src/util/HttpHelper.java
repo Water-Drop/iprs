@@ -7,8 +7,7 @@ import org.apache.commons.httpclient.methods.*;
 public class HttpHelper {
 	static public String SendHttpRequest(String type, String url, String xml){
 		String ResponseBody = "";
-		type = type.toUpperCase();
-		if (type.equalsIgnoreCase("GET")){
+		if ("GET".equalsIgnoreCase(type)){
 			GetMethod get = new GetMethod(url);
 			get.setRequestHeader("Content-type", "application/xml");
 			HttpClient httpclient = new HttpClient();
@@ -22,7 +21,7 @@ public class HttpHelper {
 					e.printStackTrace();
 				}
 		}
-		else if (type.equalsIgnoreCase("POST")){
+		else if ("POST".equalsIgnoreCase(type)){
 			PostMethod post = new PostMethod(url);
 			post.setRequestBody(xml);
 			post.setRequestHeader("Content-type", "application/xml");
@@ -37,7 +36,7 @@ public class HttpHelper {
 					e.printStackTrace();
 				}
 		}
-		else if (type.equalsIgnoreCase("PUT")){
+		else if ("PUT".equalsIgnoreCase(type)){
 			PutMethod put = new PutMethod(url);
 			put.setRequestBody(xml);
 			put.setRequestHeader("Content-type", "application/xml");
@@ -56,4 +55,5 @@ public class HttpHelper {
 		}
 		return ResponseBody;
 	}
+
 }
