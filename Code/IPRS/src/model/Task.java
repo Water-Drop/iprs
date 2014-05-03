@@ -1,3 +1,9 @@
+/*
+ * Author	: Zhou Cheng
+ * Project	: iprs
+ * Filename	: Task.java
+ * Date		: May 3, 2014
+ */
 package model;
 
 import java.io.StringReader;
