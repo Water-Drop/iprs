@@ -71,7 +71,7 @@ public class PaperBean {
 	
 	public Paper get(String pid)
 	{
-		String url = domain + "iprs/Paper/" + pid;
+		String url = domain + "iprs/Papers/" + pid;
 		String resultXML = HttpHelper.SendHttpRequest("get", url, null);
 		List<Paper>ps = Paper.parseXML(resultXML);
 		Paper paper = new Paper();
@@ -81,7 +81,7 @@ public class PaperBean {
 	
 	public List<Paper> getAll()
 	{
-		String url = domain + "iprs/Paper/";
+		String url = domain + "iprs/Papers/";
 		String resultXML = HttpHelper.SendHttpRequest("get", url, null);
 		List<Paper> ps = Paper.parseXML(resultXML);
 		return ps;
@@ -89,7 +89,7 @@ public class PaperBean {
 	
 	public List<Paper> getByUid(String uid)
 	{
-		String url = domain + "iprs/Paper/?Paper.Uid=" + uid;
+		String url = domain + "iprs/Papers/?Papers.Uid=" + uid;
 		String resultXML = HttpHelper.SendHttpRequest("get", url, null);
 		List<Paper> ps = Paper.parseXML(resultXML);
 		return ps;
@@ -122,7 +122,7 @@ public class PaperBean {
 	
 	public int lock(String pid)
 	{
-		String url = domain + "iprs/Paper/" + pid;
+		String url = domain + "iprs/Papers/" + pid;
 		String resultXML = HttpHelper.SendHttpRequest("get", url, null);
 		List<Paper> ps = Paper.parseXML(resultXML);
 		XMLParser xp = new XMLParser("put");
