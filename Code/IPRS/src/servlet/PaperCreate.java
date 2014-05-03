@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.Paper;
 import model.Authors;
+import model.Keywords;
+import ejb.PaperBean;
 
 @WebServlet("/PaperServlet")
 public class PaperCreate extends HttpServlet {
@@ -96,11 +98,13 @@ public class PaperCreate extends HttpServlet {
 		{
 			String para = "author" + String.valueOf(i);
 			String author = request.getParameter(para);
-			if (author != null) {
+			if (author != null)
+			{
 				Authors au = new Authors();
 				au.setName(author);
 				au.setIdentity(i);
 				as.add(au);
+			}
 		}
 		// Keywords 0-2
 		List<Keywords> ks = new ArrayList<Keywords>();
@@ -108,16 +112,18 @@ public class PaperCreate extends HttpServlet {
 		{
 			String para = "keyword" + String.valueOf(i);
 			String keyword = request.getParameter(para);
-			if (keyword != null) {
+			if (keyword != null)
+			{
 				Keywords k = new Keywords();
 				k.setKeyword(keyword);
 				ks.add(k);
+			}
 		}
-
 		PaperBean paperBean = new PaperBean();
 		int result = paperBean.add(paper, as, ks);
 		if (0 == result)
 		{
+			PrintWriter out = response.getWriter();
 			out.write("Success.");
        		out.flush();
         	out.close();
@@ -125,7 +131,11 @@ public class PaperCreate extends HttpServlet {
 		}
 		else
 		{
-			
+			PrintWriter out = response.getWriter();
+			out.write("Unknow error, please refresh and try again.");
+       		out.flush();
+        	out.close();
+        	return ;
 		}
 	}
 }

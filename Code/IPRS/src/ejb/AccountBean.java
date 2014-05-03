@@ -18,9 +18,8 @@ public class AccountBean {
 	public boolean isExist(String username)
 	{
 		boolean ret = false;
-		HttpHelper hhp = new HttpHelper();
 		String url = domain + "iprs/User/?User.Username=" + username;
-		String resultXML = hhp.SendHttpRequest("get", url, null);
+		String resultXML = HttpHelper.SendHttpRequest("get", url, null);
 		List<User> us = User.parseXML(resultXML);
 		if (us.size() > 0)
 			ret = true;
@@ -30,9 +29,8 @@ public class AccountBean {
 	public User check(String username, String password)
 	{
 		User ret = null;
-		HttpHelper hhp = new HttpHelper();
 		String url = domain + "iprs/User/?User.Username=" + username;
-		String resultXML = hhp.SendHttpRequest("get", url, null);
+		String resultXML = HttpHelper.SendHttpRequest("get", url, null);
 		List<User> us = User.parseXML(resultXML);
 		if (us.size() == 0)
 			ret = null;
@@ -54,9 +52,8 @@ public class AccountBean {
 		xp.add("set", "this.Password", password);
 		xp.add("set", "this.Email", email);
 		String xmlBody = xp.getXML();
-		HttpHelper hhp = new HttpHelper();
 		String url = domain + "iprs/User/";
-		String resultXML = hhp.SendHttpRequest("post", url, xmlBody);
+		String resultXML = HttpHelper.SendHttpRequest("post", url, xmlBody);
 		System.out.println(resultXML);
 		return 0;
 	}

@@ -1,5 +1,16 @@
 package util;
 
+import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.List;
+
+import model.User;
+
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.input.SAXBuilder;
+import org.xml.sax.InputSource;
+
 public class XMLParser {
 	private String type = null;
 	private String data = null;
@@ -46,5 +57,22 @@ public class XMLParser {
 			ret = "<POST>" + this.data + "</POST>";
 		}
 		return ret;
+	}
+	
+	public String getPostCreated(String xml)
+	{
+		String url = "";
+		try {
+			StringReader read = new StringReader(xml);
+			InputSource inputSource = new InputSource(read);
+			SAXBuilder builder = new SAXBuilder();
+	        Document doc = builder.build(inputSource);
+	        Element post = doc.getRootElement();
+	        Element created = post.getChild("Created");
+	        url = created.getText();
+		} catch (Exception e) {
+			// do nothing
+		}
+		return url;
 	}
 }
