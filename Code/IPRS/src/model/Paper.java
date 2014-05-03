@@ -79,7 +79,7 @@ public class Paper {
 			SAXBuilder builder = new SAXBuilder();
 	        Document doc = builder.build(inputSource);
 	        Element collection = doc.getRootElement();
-	        List<Element> paperList = collection.getChildren("Paper");
+	        List<Element> paperList = collection.getChildren("Papers");
 	        for(int i = 0, j = paperList.size();i < j; i++)  
 	        {
 	        	Element paperE = paperList.get(i);
