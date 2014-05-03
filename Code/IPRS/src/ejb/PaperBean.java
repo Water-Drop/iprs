@@ -85,7 +85,6 @@ public class PaperBean {
 		String resultXML = HttpHelper.SendHttpRequest("get", url, null);
 		System.out.println(resultXML);
 		List<Paper> ps = Paper.parseXML(resultXML);
-		System.out.println(ps);
 		return ps;
 	}
 	
