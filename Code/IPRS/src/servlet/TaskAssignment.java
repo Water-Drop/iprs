@@ -8,6 +8,9 @@
 package servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +18,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Paper;
+import ejb.TaskBean;
+import model.Task;
 
 @WebServlet("/TaskAssignment")
 public class TaskAssignment extends HttpServlet {
@@ -34,7 +38,39 @@ public class TaskAssignment extends HttpServlet {
 	}
 	
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Paper task = new Task();
-		String title = request.getParameter("title");
+		List<Task> ts = new ArrayList<Task>();
+		String pid = request.getParameter("pid");
+		for (int i = 1; i <= 5; i ++)
+		{
+			String para = "uid" + String.valueOf(i);
+			String uid = request.getParameter(para);
+			if (uid != null)
+			{
+				Task t = new Task();
+				t.setPid(pid);
+				t.setUid(uid);
+				t.setStatus(0);
+				t.setOrder(i);
+				ts.add(t);
+			}
+		}
+		TaskBean taskBean = new TaskBean();
+		int result = taskBean.add(ts);
+		if (0 == result)
+		{
+			PrintWriter out = response.getWriter();
+			out.write("Success.");
+       		out.flush();
+        	out.close();
+        	return ;
+		}
+		else
+		{
+			PrintWriter out = response.getWriter();
+			out.write("Unknow error, please refresh and try again.");
+       		out.flush();
+        	out.close();
+        	return ;
+		}
 	}
 }
