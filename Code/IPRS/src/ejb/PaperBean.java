@@ -6,6 +6,7 @@
  */
 package ejb;
 
+import java.io.StringReader;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -14,20 +15,15 @@ import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 
-import java.io.StringReader;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import model.Authors;
+import model.Keywords;
+import model.Paper;
 
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.input.SAXBuilder;
 import org.xml.sax.InputSource;
 
-import model.Authors;
-import model.Keywords;
-import model.Paper;
 import util.HttpHelper;
 import util.XMLParser;
 

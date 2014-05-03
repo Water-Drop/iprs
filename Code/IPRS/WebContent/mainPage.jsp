@@ -26,22 +26,16 @@ body {
 		var actMain = document.getElementById("actMain"); 
 		var actSubmit = document.getElementById("actSubmit"); 
 		var actStatus = document.getElementById("actStatus"); 
-		var actModify = document.getElementById("actModify"); 
-		var actRegret = document.getElementById("actRegret"); 
 		var actReview = document.getElementById("actReview");
 		var actSeeAll = document.getElementById("actSeeAll"); 
 		actMain.style.background = bgc;
 		actSubmit.style.background = bgc;
 		actStatus.style.background = bgc;
-		actModify.style.background = bgc;
-		actRegret.style.background = bgc;
 		actReview.style.background = bgc;
 		actSeeAll.style.background = bgc;
 		actMain.setAttribute("onmouseout", "mouseOutButton(this);");
 		actSubmit.setAttribute("onmouseout", "mouseOutButton(this);");
 		actStatus.setAttribute("onmouseout", "mouseOutButton(this);");
-		actModify.setAttribute("onmouseout", "mouseOutButton(this);");
-		actRegret.setAttribute("onmouseout", "mouseOutButton(this);");
 		actReview.setAttribute("onmouseout", "mouseOutButton(this);");
 		actSeeAll.setAttribute("onmouseout", "mouseOutButton(this);");
 		x.style.background = hlc;
@@ -49,15 +43,11 @@ body {
 		var pMain = document.getElementById("pMain");
 		var pSubmit = document.getElementById("pSubmit");
 		var pStatus = document.getElementById("pStatus");
-		var pModify = document.getElementById("pModify");
-		var pRegret = document.getElementById("pRegret");
 		var pReview = document.getElementById("pReview");
 		var pSeeAll = document.getElementById("pSeeAll");
 		pMain.style.visibility = "hidden";
 		pSubmit.style.visibility = "hidden";
 		pStatus.style.visibility = "hidden";
-		pModify.style.visibility = "hidden";
-		pRegret.style.visibility = "hidden";
 		pReview.style.visibility = "hidden";
 		pSeeAll.style.visibility = "hidden";
 		if (x.id == "actMain")
@@ -71,14 +61,6 @@ body {
 		else if (x.id == "actStatus")
 		{
 			pStatus.style.visibility = "visible";
-		}			
-		else if (x.id == "actModify")
-		{
-			pModify.style.visibility = "visible";
-		}			
-		else if (x.id == "actRegret")
-		{
-			pRegret.style.visibility = "visible";
 		}			
 		else if (x.id == "actReview")
 		{
@@ -109,12 +91,6 @@ body {
 				<div id="actStatus" class="prAct-Op cBackground1" onmouseover="mouseOnButton(this);" onmouseout="mouseOutButton(this);" onclick="mouseClick(this);">
 					<h3>论文查看</h3>
 				</div>
-				<div id="actModify" class="prAct-Op cBackground1" onmouseover="mouseOnButton(this);" onmouseout="mouseOutButton(this);" onclick="mouseClick(this);">
-					<h3>论文修改</h3>
-				</div>
-				<div id="actRegret" class="prAct-Op cBackground1" onmouseover="mouseOnButton(this);" onmouseout="mouseOutButton(this);" onclick="mouseClick(this);">
-					<h3>论文撤回</h3>
-				</div>
 			</div>
 			<div class="reviewActArea">
 				<div class="prAct-Title cBackground1">
@@ -142,8 +118,6 @@ body {
 		</div>
 		<iframe src="paperSubmit.jsp" id="pSubmit" class="pIFrame isHidden"></iframe>
 		<iframe src="paperStatus.jsp" id="pStatus" class="pIFrame isHidden"></iframe>
-		<iframe src="paperModify.jsp" id="pModify" class="pIFrame isHidden"></iframe>
-		<iframe src="paperRegret.jsp" id="pRegret" class="pIFrame isHidden"></iframe>
 		<iframe src="paperReview.jsp" id="pReview" class="pIFrame isHidden"></iframe>
 		<iframe src="paperSeeAll.jsp" id="pSeeAll" class="pIFrame isHidden"></iframe>
 	</div>

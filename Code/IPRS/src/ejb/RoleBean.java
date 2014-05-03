@@ -2,8 +2,8 @@ package ejb;
 
 import javax.ejb.Stateless;
 
-import util.XMLParser;
 import util.HttpHelper;
+import util.XMLParser;
 
 @Stateless
 public class RoleBean {

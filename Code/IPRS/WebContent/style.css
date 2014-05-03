@@ -204,7 +204,7 @@
 
 .userActArea {
 	width: 250px;
-	height: 100%;
+	height: 600px;
 	float: left;
 }
 
@@ -217,7 +217,6 @@
 .paperActArea {
 	width: 250px;
 	float: left;
-	height: 285px;
 }
 
 .reviewActArea {

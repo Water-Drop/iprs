@@ -7,6 +7,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,29 +27,35 @@ import model.User;
 @WebServlet("/PaperReview")
 public class PaperReview extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
-    public PaperReview() {
-        super();
-    }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public PaperReview() {
+		super();
+	}
+
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		processRequest(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		processRequest(request, response);
 	}
-	
-	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void processRequest(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html;charset=UTF-8");
+		System.out.println("Processing Paper Review Infos.");
+
 		User user = (User) request.getSession().getAttribute("user");
 		String uid = user.getUri().replaceAll("iprs/User/", "");
 		TaskBean taskBean = new TaskBean();
 		PaperBean paperBean = new PaperBean();
 		List<Task> ats = taskBean.getTaskbyUser(uid);
 		List<TaskDTO> dts = new ArrayList<TaskDTO>();
-		for (int i = 0, j = ats.size(); i < j; i ++)
-		{
+		for (int i = 0, j = ats.size(); i < j; i++) {
 			Task t = ats.get(i);
+			System.out.println("i= "+i+" t="+t.getPid());
 			Paper p = paperBean.get(t.getPid());
 			TaskDTO td = new TaskDTO();
 			td.setTid(t.getUri().replaceAll("iprs/Task/", ""));
@@ -60,7 +67,30 @@ public class PaperReview extends HttpServlet {
 				td.setIsEdit(1);
 			dts.add(td);
 		}
-		
+		System.out.println("Printing.!");
 		// dts is the list!
+		// <input type=button value=下载 onclick="window.location.href='文件名'">
+		PrintWriter out = response.getWriter();
+		if (0 == dts.size()) {
+			out.println("Sad :( <br> No more paper");
+		} else {
+			out.println("<table>");
+			out.println("<tr><td>审阅任务ID</td><td>论文题目</td><td>审阅</td><td>下载</td></tr>");
+			for (int i = 0; i < dts.size(); i++) {
+				out.print("<tr>");
+				out.print("<td>" + dts.get(i).getTid() + "</td>");
+				out.print("<td>" + dts.get(i).getTitle() + "</td>");
+				if (0 == dts.get(i).getIsEdit())
+					out.print("<td><input type='button' value='审阅' onclick=''></td>");
+				else
+					out.print("<td>不可审阅</td>");
+				out.print("<td><input type='button' value='下载' onclick='window.location.href=\""
+						+ dts.get(i).getDownUrl() + "\"'></td>");
+				out.print("</tr>");
+			}
+			out.println("</table>");
+		}
+		out.close();
+
 	}
 }
