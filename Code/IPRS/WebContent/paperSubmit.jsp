@@ -4,8 +4,12 @@
 <head>
 <title>提交论文</title>
 <link rel="stylesheet" type="text/css" href="style.css" />
-<script src="js/jquery-2.1.0.js"></script>
+<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+<script type="text/javascript" src="js/AjaxFileUploader/ajaxfileupload.js"></script>
 <script type="text/javascript">
+
+var location = null;
+
 function pSubmit() {
 	var pTitle = document.getElementById("pTitle");
 	var abstr = document.getElementById("pAbstract");
@@ -30,38 +34,33 @@ function pSubmit() {
 			author3:pAuthor3.value,
 			keyword0:kywrd0.value,
 			keyword1:kywrd1.value,
-			keyword2:kywrd2.value
-			})
+			keyword2:kywrd2.value,
+			location:location
+			});
 	}
 
-function openUpload(functionId,fileType,maxSize,callback){  
-    var url = root+"/paperSubmit.html?method=goFileUpload&";  
-    if(functionId!=null){  
-        url = url + "functionId="+functionId+"&";  
-    }  
-    if(fileType!=null){  
-        url = url + "fileType="+fileType+"&";  
-    }  
-    if(maxSize!=null){  
-        url = url + "maxSize="+maxSize;  
-    }  
-    var win = window.showModalDialog(url,"","dialogWidth:300px;dialogHeight:150px;scroll:no;status:no");  
-    if(win != null){  
-        var arrWin = win.split(",");  
-        callback(arrWin[0],arrWin[1],arrWin[2]);  
-    }  
-}  
+function uploadFile() {
+    $.ajaxFileUpload({
+        url: "http://localhost:12798/api/File",
+        secureuri: false,
+        fileElementId: 'file',
+        dataType: 'xml',
+        success: function (data, status) {
+        	location = data;
+        },
+        error: function (data, status, e) {
+            alert("论文上传失败！");
+        },
+    });
+}
 
-function openUpload_(){  
-    openUpload(null,'JPG,GIF,JPEG,PNG','5',callback);  
-}  
-
-function callback(realName,saveName,maxSize){  
-    $("#photo_").val(saveName);  
-}  
 </script>
 </head>
 <body>
+	<form enctype="multipart/form-data">论文上传
+		<input id="file" name="file" type="file" />
+		<a href="javascript:uploadFile()">上传</a>
+	</form>
 	<form id="paperForm">
 		<table>
 			<tr>
@@ -97,9 +96,6 @@ function callback(realName,saveName,maxSize){
 			</tr>
 			<tr>
 				<td>第三作者：<input id="pAuthor3" class="pSubmit-Author"></td>
-			</tr>
-			<tr>
-				<td>论文上传：<input type="hidden" name="photo" id="photo_"></input><input type="button" onclick="openUpload_()" value="上传"/></td>
 			</tr>
 			<tr>
 				<td><input type="hidden" id="uri" value="${user.uri}"><input type="button" value="提交" onclick="pSubmit();"></td>
