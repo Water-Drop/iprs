@@ -25,6 +25,24 @@ body {
 		rWindow.style.visibility = 'hidden';
 		lWindow.style.visibility = 'visible';
 		}
+	function login() {
+		var usn = document.getElementById("lUsername");
+		var psw = document.getElementById("lPassword");
+		$.post("Register",
+				{
+				type:"login",
+				username:usn.value,
+				password:psw.value
+				},
+				function(data,status){
+					if (data.trim() == "success"){
+						window.location.href="mainPage.jsp";
+						}
+					else{
+						alert("µÇÂ¼Ê§°Ü");
+						}
+					})
+		}
 	function isValidUsername(){
 		var usn = document.getElementById("rUsername");
 		var cMsg = document.getElementById("usnCheckMsg");
@@ -55,18 +73,14 @@ body {
 				username:usn.value,
 				password:psw.value,
 				email:eml.value
-				})
+				},
+				function(data,status){
+					if (data.trim() != null)
+						{ alert(data.trim());}
+					}
+				)
 		}
-	function login() {
-		var usn = document.getElementById("lUsername");
-		var psw = document.getElementById("lPassword");
-		$.post("Register",
-				{
-				type:"login",
-				username:usn.value,
-				password:psw.value
-				})
-		}
+
 	function isSamePassword(){		
 		var psw = document.getElementById("rPassword");
 		var cpsw = document.getElementById("checkPassword");
@@ -114,7 +128,7 @@ body {
 			<form name="loginForm" method="post">
 				<input id="lUsername" type="text" class="inputFieldStyle iField1"> 
 				<input id="lPassword" type="password" class="inputFieldStyle iField2">
-				<input type="submit" class="lrButton leftButton bUrl1" value=" " onclick="login();">
+				<input type="button" class="lrButton leftButton bUrl1" value=" " onclick="login();">
 				<input type="button" class="lrButton rightButton bUrl2"	onclick="loginToRegister();">
 			</form>
 		</div>
@@ -165,7 +179,7 @@ body {
 				<input id="rPassword" type="password" class="inputFieldStyle iField2" onblur="isSamePassword();"> 
 				<input id="checkPassword" type="password" class="inputFieldStyle iField3" onblur="isSamePassword();">  
 				<input id="email" type="text" class="inputFieldStyle iField4"> 
-				<input type="submit" class="lrButton leftButton bUrl3" value=" " onclick="register();"> 
+				<input type="button" class="lrButton leftButton bUrl3" value=" " onclick="register();"> 
 				<input type="button" class="lrButton rightButton bUrl4"	onclick="registerToLogin();">
 			</form>
 			<div id="usnCheckMsg" class="usnCheckMsg isHidden">				

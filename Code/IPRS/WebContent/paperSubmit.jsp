@@ -17,18 +17,18 @@ function pSubmit() {
 	var pAuthor1 = document.getElementById("pAuthor1");
 	var pAuthor2 = document.getElementById("pAuthor2");
 	var pAuthor3 = document.getElementById("pAuthor3");
-	$.post("paperSubmit",
+	$.post("PaperServlet",
 			{
-			title:pTitle.value;
-			abstra:abstr.value;
-			cid:pCid.value;
-			author0:pAuthor0.value;
-			author1:pAuthor1.value;
-			author2:pAuthor2.value;
-			author3:pAuthor3.value;
-			keyword0:kywrd0.value;
-			keyword1:kywrd1.value;
-			keyword2:kywrd2.value;
+			title:pTitle.value,
+			abstra:abstr.value,
+			cid:pCid.value,
+			author0:pAuthor0.value,
+			author1:pAuthor1.value,
+			author2:pAuthor2.value,
+			author3:pAuthor3.value,
+			keyword0:kywrd0.value,
+			keyword1:kywrd1.value,
+			keyword2:kywrd2.value
 			})
 	}
 

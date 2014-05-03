@@ -48,17 +48,22 @@ body {
 		x.onmouseout=null;
 		var pMain = document.getElementById("pMain");
 		var pSubmit = document.getElementById("pSubmit");
+		var pStatus = document.getElementById("pStatus");
 		pMain.style.visibility = "hidden";
 		pSubmit.style.visibility = "hidden";
+		pStatus.style.visibility = "hidden";
 		if (x.id == "actMain")
 			{
 				pMain.style.visibility = "visible";	
 			}
 		else if (x.id == "actSubmit")
-			{
-				pSubmit.style.visibility = "visible";
-			}
-			
+		{
+			pSubmit.style.visibility = "visible";
+		}
+		else if (x.id == "actStatus")
+		{
+			pStatus.style.visibility = "visible";
+		}			
 		}
 </script>
 </head>
@@ -108,8 +113,9 @@ body {
 				<h1>但是论文投稿人的个人信息并不重要</h1>
 				<h1>不论如何，欢迎来到IRPS</h1>
 			</div>
-			<iframe src="paperSubmit.jsp" id="pSubmit" class="pSubmit-Area isHidden"></iframe>
 		</div>
+		<iframe src="paperSubmit.jsp" id="pSubmit" class="pIFrame isHidden"></iframe>
+		<iframe src="paperStatus.jsp" id="pStatus" class="pIFrame isHidden"></iframe>
 	</div>
 </body>
 </html>
