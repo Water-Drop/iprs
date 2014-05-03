@@ -75,6 +75,14 @@ public class PaperBean {
 		paper = ps.get(0);
 		return paper;
 	}
+	
+	public List<Paper> getAll()
+	{
+		String url = domain + "iprs/Paper/";
+		String resultXML = HttpHelper.SendHttpRequest("get", url, null);
+		List<Paper> ps = Paper.parseXML(resultXML);
+		return ps;
+	}
 
 	public int edit(Paper paper)
 	{

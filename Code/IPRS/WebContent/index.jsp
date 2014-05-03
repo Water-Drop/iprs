@@ -52,6 +52,7 @@ body {
 				username:usn.value
 				},
 				function(data,status){
+					alert(data); // debug
 					if (data.trim() == "success"){
 						cMsg.innerHTML = "用户名可用！";
 						cMsg.style.visibility = 'visible';
