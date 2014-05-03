@@ -7,6 +7,7 @@
 package ejb;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -104,7 +105,9 @@ public class PaperBean {
 		xp.add("set", "this.Abstract", paper.getAbstract());
 		int s = paper.getStatus() > 0 ? paper.getStatus() : ((-1) * paper.getStatus());
 		xp.add("set", "this.Status", String.valueOf(s));
-		xp.add("set", "this.LMTime", paper.getLMTime().toString());
+		SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
+		Date d = new Date();
+		xp.add("set", "this.LMTime", fmt.format(d));
 		xp.add("set", "this.Location", paper.getLocation());
 		HttpHelper.SendHttpRequest("put", url, xp.getXML());
 		return 0;
@@ -114,7 +117,7 @@ public class PaperBean {
 	{
 		XMLParser xp = new XMLParser("put");
 		xp.add("set", "this.Status", "-10");
-		String url = domain + "iprs/Paper/" + pid;
+		String url = domain + "iprs/Papers/" + pid;
 		HttpHelper.SendHttpRequest("put", url, xp.getXML());
 		return 0;
 	}
