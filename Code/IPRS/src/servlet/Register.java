@@ -1,7 +1,9 @@
-//  Author  : Zhou Cheng
-//  Date    : May 1, 2014
-//  Register servlet
-
+/*
+ * Author	: Zhou Cheng
+ * Project	: iprs
+ * Filename	: Register.java
+ * Date		: May 3, 2014
+ */
 package servlet;
 
 import java.io.IOException;
