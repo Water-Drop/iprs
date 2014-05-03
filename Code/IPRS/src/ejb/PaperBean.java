@@ -14,11 +14,24 @@ import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 
+import java.io.StringReader;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.input.SAXBuilder;
+import org.xml.sax.InputSource;
+
 import model.Authors;
 import model.Keywords;
 import model.Paper;
 import util.HttpHelper;
 import util.XMLParser;
+
+
 
 @Stateless
 @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
@@ -73,9 +86,37 @@ public class PaperBean {
 	{
 		String url = domain + "iprs/Papers/" + pid;
 		String resultXML = HttpHelper.SendHttpRequest("get", url, null);
-		List<Paper>ps = Paper.parseXML(resultXML);
 		Paper paper = new Paper();
-		paper = ps.get(0);
+		try {
+			StringReader read = new StringReader(resultXML);
+			InputSource inputSource = new InputSource(read);
+			SAXBuilder builder = new SAXBuilder();
+	        Document doc = builder.build(inputSource);
+	        Element p = doc.getRootElement();
+	        if (null != p){
+	        	
+	        	Element paperUri = p.getChild("uri");
+	        	Element paperTitle = p.getChild("Title");
+	        	Element paperAbstract = p.getChild("Abstract");
+	        	Element paperCid = p.getChild("Cid");
+	        	Element paperStatus = p.getChild("Status");
+                Element paperLMTime = p.getChild("LMTime");
+                Element paperUid = p.getChild("Uid");
+                Element paperLocation = p.getChild("Location");
+	        	
+	        	paper.setUri(paperUri.getText());
+	        	paper.setTitle(paperTitle.getText());
+	        	paper.setAbstract(paperAbstract.getText());
+	        	paper.setCid(paperCid.getText());
+	        	paper.setStatus(Integer.valueOf(paperStatus.getText()));
+	        	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd ");
+	        	paper.setLMTime(sdf.parse(paperLMTime.getText()));
+	        	paper.setUid(paperUid.getText());
+	        	paper.setLocation(paperLocation.getText());
+	        }
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 		return paper;
 	}
 	
