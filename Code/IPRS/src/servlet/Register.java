@@ -62,7 +62,7 @@ public class Register extends HttpServlet {
 			User user = account.check(username, password);
 			if (user != null) {
 				HttpSession ses = request.getSession(true);
-				ses.setAttribute("username", username);
+				ses.setAttribute("user", user);
 				PrintWriter out = response.getWriter();
 				out.write("success");
 				out.close();
