@@ -45,10 +45,13 @@ function uploadFile() {
         secureuri: false,
         fileElementId: 'file',
         dataType: 'xml',
-        success: function (data, status) {
-        	loc = data;
+        success: function (data) {
+        	var str = data.getElementsByTagName("string");
+            var text = str[0].firstChild.nodeValue;
+        	loc = text;
+        	document.getElementById("file").value = loc;
         },
-        error: function (data, status, e) {
+        error: function (data) {
             alert("论文上传失败！");
         },
     });
