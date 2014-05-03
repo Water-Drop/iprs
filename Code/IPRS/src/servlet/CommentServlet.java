@@ -46,6 +46,8 @@ public class CommentServlet extends HttpServlet {
 			String tid = request.getParameter("tid");
 			List<Comment> comms = com.getTaskComment(tid);
 			request.setAttribute("comlist", comms);
+		}else {
+			
 		}
 	}
 
@@ -67,6 +69,8 @@ public class CommentServlet extends HttpServlet {
 			int rate = Integer.parseInt(request.getParameter("rate"));
 			int confidence = Integer.parseInt(request.getParameter("confidence"));
 			com.modify(uri, content, rate, confidence);
+		} else {
+			
 		}
 	}
 
