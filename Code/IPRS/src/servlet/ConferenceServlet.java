@@ -16,14 +16,14 @@ import ejb.ConferenceBean;
  * Servlet implementation class Conference
  */
 @WebServlet("/Conference")
-public class Conference extends HttpServlet {
+public class ConferenceServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	@EJB
     private ConferenceBean conf;   
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Conference() {
+    public ConferenceServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
