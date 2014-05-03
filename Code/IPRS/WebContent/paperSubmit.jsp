@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<%@ page language="java" import="java.util.*" pageEncoding="GBK"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Ìá½»ÂÛÎÄ</title>
 <link rel="stylesheet" type="text/css" href="style.css" />
 <script src="js/jquery-2.1.0.js"></script>
 <script type="text/javascript">
@@ -63,41 +63,41 @@ function callback(realName,saveName,maxSize){
 	<form id="paperForm">
 		<table>
 			<tr>
-				<td>æ ‡é¢˜ã€€ã€€ï¼š<input id="pTitle" type="text" class="pSubmit-Title"></td>
+				<td>±êÌâ¡¡¡¡£º<input id="pTitle" type="text" class="pSubmit-Title"></td>
 			</tr>
 			<tr>
-				<td>æŠ•ç¨¿ä¼šè®®ï¼š<input id="pConf" type="text" class="pSubmit-Title"></td>
+				<td>Í¶¸å»áÒé£º<input id="pConf" type="text" class="pSubmit-Title"></td>
 			</tr>
 			<tr>
-				<td>æ¦‚è¦ã€€ã€€ï¼š<textarea id="pAbstract" rows="5"
+				<td>¸ÅÒª¡¡¡¡£º<textarea id="pAbstract" rows="5"
 						class="pSubmit-Abstract"></textarea></td>
 			</tr>
 			<tr>
-				<td>å…³é”®è¯1 ï¼š<input id="pKeyword0" type="text"
+				<td>¹Ø¼ü´Ê1 £º<input id="pKeyword0" type="text"
 					class="pSubmit-Title"></td>
 			</tr>
 			<tr>
-				<td>å…³é”®è¯2 ï¼š<input id="pKeyword1" type="text"
+				<td>¹Ø¼ü´Ê2 £º<input id="pKeyword1" type="text"
 					class="pSubmit-Title"></td>
 			</tr>
 			<tr>
-				<td>å…³é”®è¯3 ï¼š<input id="pKeyword2" type="text"
+				<td>¹Ø¼ü´Ê3 £º<input id="pKeyword2" type="text"
 					class="pSubmit-Title"></td>
 			</tr>
 			<tr>
-				<td>é€šè®¯ä½œè€…ï¼š<input id="pAuthor0" class="pSubmit-Author"></td>
+				<td>Í¨Ñ¶×÷Õß£º<input id="pAuthor0" class="pSubmit-Author"></td>
 			</tr>
 			<tr>
-				<td>ç¬¬ä¸€ä½œè€…ï¼š<input id="pAuthor1" class="pSubmit-Author"></td>
+				<td>µÚÒ»×÷Õß£º<input id="pAuthor1" class="pSubmit-Author"></td>
 			</tr>
 			<tr>
-				<td>ç¬¬äºŒä½œè€…ï¼š<input id="pAuthor2" class="pSubmit-Author"></td>
+				<td>µÚ¶þ×÷Õß£º<input id="pAuthor2" class="pSubmit-Author"></td>
 			</tr>
 			<tr>
-				<td>ç¬¬ä¸‰ä½œè€…ï¼š<input id="pAuthor3" class="pSubmit-Author"></td>
+				<td>µÚÈý×÷Õß£º<input id="pAuthor3" class="pSubmit-Author"></td>
 			</tr>
 			<tr>
-				<td>è®ºæ–‡ä¸Šä¼ ï¼š<input type="hidden" name="photo" id="photo_"></input><input type="button" onclick="openUpload_()" value="ä¸Šä¼ "/></td>
+				<td>ÂÛÎÄÉÏ´«£º<input type="hidden" name="photo" id="photo_"></input><input type="button" onclick="openUpload_()" value="ÉÏ´«"/></td>
 			</tr>
 			<tr>
 				<td><input type="submit" onclick="pSubmit();"></td>

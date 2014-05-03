@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<%@ page language="java" import="java.util.*" pageEncoding="GBK"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
-<title>æ¬¢è¿æ¥åˆ°å›½é™…è®ºæ–‡å®¡é˜…ç³»ç»Ÿ</title>
+<title>»¶Ó­À´µ½¹ú¼ÊÂÛÎÄÉóÔÄÏµÍ³</title>
 <link rel="stylesheet" type="text/css" href="style.css" />
 <style type="text/css">
 body {
@@ -35,11 +35,11 @@ body {
 				},
 				function(data,status){
 					if (data.trim() == "success"){
-						cMsg.innerHTML = "ç”¨æˆ·åå¯ç”¨ï¼";
+						cMsg.innerHTML = "ÓÃ»§Ãû¿ÉÓÃ£¡";
 						cMsg.style.visibility = 'visible';
 						}
 					else{
-						cMsg.innerHTML = "<img src=\"icos/error.jpg\">ç”¨æˆ·åä¸å¯ç”¨!";
+						cMsg.innerHTML = "<img src=\"icos/error.jpg\">ÓÃ»§Ãû²»¿ÉÓÃ!";
 						cMsg.style.visibility = 'visible';
 						}
 					}
@@ -72,11 +72,11 @@ body {
 		var cpsw = document.getElementById("checkPassword");
 		var cMsg = document.getElementById("pswCheckMsg");
 		if ((psw.value == cpsw.value) && (psw.value != "")){
-			cMsg.innerHTML = "å¯†ç æ­£ç¡®ï¼";
+			cMsg.innerHTML = "ÃÜÂëÕıÈ·£¡";
 			cMsg.style.visibility = 'visible';
 			}
 		else{
-			cMsg.innerHTML = "<img src=\"icos/error.jpg\">å¯†ç é”™è¯¯!";
+			cMsg.innerHTML = "<img src=\"icos/error.jpg\">ÃÜÂë´íÎó!";
 			cMsg.style.visibility = 'visible';
 			}
 	}
@@ -86,7 +86,7 @@ body {
 <body>
 	<div id="loginWindow" class="lWindow">
 		<div class="loginTopics">
-		<h1>æ¬¢è¿æ¥åˆ°å›½é™…è®ºæ–‡å®¡é˜…ç³»ç»Ÿ</h1>
+		<h1>»¶Ó­À´µ½¹ú¼ÊÂÛÎÄÉóÔÄÏµÍ³</h1>
 		<h3>Welcome to the International Paper Review System</h3>
 		</div>
 		<div class="popLoginArea">
@@ -95,14 +95,14 @@ body {
 					<tr>
 						<td>
 							<div class="popLogin-inner">
-								<div class="popLogin-inputText">ç”¨æˆ·åï¼š</div>
+								<div class="popLogin-inputText">ÓÃ»§Ãû£º</div>
 							</div>
 						</td>
 					</tr>
 					<tr>
 						<td>
 							<div class="popLogin-inner">
-								<div class="popLogin-inputText">å¯†ç ï¼š</div>
+								<div class="popLogin-inputText">ÃÜÂë£º</div>
 							</div>
 						</td>
 					</tr>
@@ -121,7 +121,7 @@ body {
 	</div>
 	<div id="registerWindow" class="rWindow isHidden">
 		<div class="loginTopics">
-		<h1>æ¬¢è¿åŠ å…¥å›½é™…è®ºæ–‡å®¡é˜…ç³»ç»Ÿ</h1>
+		<h1>»¶Ó­¼ÓÈë¹ú¼ÊÂÛÎÄÉóÔÄÏµÍ³</h1>
 		<h3>Welcome to join the International Paper Review System</h3>
 		</div>
 		<div class="popLoginArea">
@@ -130,28 +130,28 @@ body {
 					<tr>
 						<td>
 							<div class="popLogin-inner">
-								<div class="popLogin-inputText">ç”¨æˆ·åï¼š</div>
+								<div class="popLogin-inputText">ÓÃ»§Ãû£º</div>
 							</div>
 						</td>
 					</tr>
 					<tr>
 						<td>
 							<div class="popLogin-inner">
-								<div class="popLogin-inputText">å¯†ç ï¼š</div>
+								<div class="popLogin-inputText">ÃÜÂë£º</div>
 							</div>
 						</td>
 					</tr>
 					<tr>
 						<td>
 							<div class="popLogin-inner">
-								<div class="popLogin-inputText">ç¡®è®¤å¯†ç ï¼š</div>
+								<div class="popLogin-inputText">È·ÈÏÃÜÂë£º</div>
 							</div>
 						</td>
 					</tr>
 					<tr>
 						<td>
 							<div class="popLogin-inner">
-								<div class="popLogin-inputText">é‚®ç®±ï¼š</div>
+								<div class="popLogin-inputText">ÓÊÏä£º</div>
 							</div>
 						</td>
 					</tr>
