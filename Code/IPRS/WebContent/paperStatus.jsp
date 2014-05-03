@@ -6,7 +6,8 @@
 <link rel="stylesheet" type="text/css" href="style.css" />
 <script src="js/jquery-2.1.0.js"></script>
 <script type="text/javascript">
-	window.onload = function() {
+	loc = null;
+	function allMyPaper() {
 		var uId = document.getElementById("uri").value
 				.replace("iprs/User/", "");
 		$.post("PaperSearch", {
@@ -37,23 +38,51 @@
 				title:mTitle.value,
 				abstra:mAbs.value,
 				status:mSta.value,
-				uri:mUrs.value,
-				loc:""
+				uri:mUri.value,
+				locate:loc
 				},
 				function(data){
 					alert(data.trim());
+					allMyPaper();
 					var x = document.getElementById("paperInfo");
 					var pModif = document.getElementById("modification");
 					x.style.visibility = "visible";
 					pModif.style.visibility = "hidden";					
 				});
 		}
+	function regretPaper(rUri){
+		alert()
+		$.post("PaperRegret",
+				{pid:rUri.replace("iprs/Papers/","")},
+				function(data){
+					alert(data.trim());
+					allMyPaper();
+					}
+				)
+		}
+	function uploadFile() {
+		var path = document.getElementById("file").value;
+	    var arr = path.split("\\");
+	    loc = arr[arr.length - 1];
+	    $.ajaxFileUpload({
+	        url: "http://test.ldsink.com/api/File",
+	        secureuri: false,
+	        fileElementId: 'file',
+	        dataType: 'xml',
+	        success: function (data) {},
+	        error: function (data) {},
+	    });
+	}
 </script>
 </head>
-<body>
+<body onload="allMyPaper();">
 	<input type="hidden" id="uri" value="${user.uri}">
 	<div id="paperInfo" class="position:absolute;top:0px;"></div>
 	<div id="modification" class="pModification isHidden">
+		<form enctype="multipart/form-data">论文上传
+			<input id="file" name="file" type="file" />
+			<a href="javascript:uploadFile()">上传</a>
+		</form>
 		<form id="paperForm">
 			<input type ="hidden" id="mSta">
 			<table>
