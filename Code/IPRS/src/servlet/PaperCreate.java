@@ -51,7 +51,7 @@ public class PaperCreate extends HttpServlet {
         	return ;
 		}
 		paper.setTitle(title);
-		String abstra = request.getParameter("abstract");
+		String abstra = request.getParameter("abstra");
 		if (abstra == null) {
 			PrintWriter out = response.getWriter();
 			out.write("Error : Abstract is empty.");
@@ -69,15 +69,7 @@ public class PaperCreate extends HttpServlet {
         	return ;
 		}
 		paper.setCid(cid);
-		String status = request.getParameter("status");
-		if (status == null) {
-			PrintWriter out = response.getWriter();
-			out.write("Error : Status is empty.");
-       		out.flush();
-        	out.close();
-        	return ;
-		}
-		paper.setStatus(Integer.parseInt(status));
+		paper.setStatus(0);
 		Date lmTime = new Date();
 		paper.setLMTime(lmTime);
 		String uid = request.getParameter("uid");
