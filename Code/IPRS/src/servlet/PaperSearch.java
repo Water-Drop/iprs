@@ -43,18 +43,13 @@ public class PaperSearch extends HttpServlet {
 		if ("getUid".equals(type)) {
 			PaperBean paperBean = new PaperBean();
 			String uid = request.getParameter("uid");
-			List<Paper> pList = paperBean.getAll();
+			List<Paper> pList = paperBean.getByUid(uid);
 			PrintWriter out = response.getWriter();
 			out.println("<table>");
-			boolean flag = true;
 			for (int i = 0; i < pList.size(); i++)
-				if (uid.equals(pList.get(i).getUid())) {
-					out.println("<tr><td>" + pList.get(i).getUid()
-							+ "</td><td>" + pList.get(i).getTitle()
-							+ "</td></tr>");
-					flag = false;
-				}
-			if (flag)
+				out.println("<tr><td>" + pList.get(i).getUid() + "</td><td>"
+						+ pList.get(i).getTitle() + "</td></tr>");
+			if (0 == pList.size())
 				out.println("Sad :( <br> No more paper");
 
 			out.println("</table>");
