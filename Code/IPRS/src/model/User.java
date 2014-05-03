@@ -42,7 +42,7 @@ public class User {
 	
 	static public List<User> parseXML(String xml)
 	{
-		List<User> ret = new  ArrayList<User>();
+		List<User> ret = new ArrayList<User>();
 		try {
 			StringReader read = new StringReader(xml);
 			InputSource inputSource = new InputSource(read);

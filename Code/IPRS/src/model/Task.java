@@ -55,7 +55,7 @@ public class Task {
 	
 	static public List<Task> parseXML(String xml)
 	{
-		List<Task> ret = new  ArrayList<Task>();
+		List<Task> ret = new ArrayList<Task>();
 		try {
 			StringReader read = new StringReader(xml);
 			InputSource inputSource = new InputSource(read);

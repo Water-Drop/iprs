@@ -1,3 +1,9 @@
+/*
+ * Author	: Zhou Cheng
+ * Project	: iprs
+ * Filename	: PaperBean.java
+ * Date		: May 3, 2014
+ */
 package ejb;
 
 import java.util.List;
@@ -58,5 +64,33 @@ public class PaperBean {
 			HttpHelper.SendHttpRequest("post", url, xp.getXML());
 		}
 		return 0;
+	}
+	
+	public Paper get(String pid)
+	{
+		String url = domain + "iprs/User/" + pid;
+		String resultXML = HttpHelper.SendHttpRequest("get", url, null);
+		List<Paper>ps = Paper.parseXML(resultXML);
+		Paper paper = new Paper();
+		paper = ps.get(0);
+		return paper;
+	}
+
+	public int edit(Paper paper)
+	{
+		// Withdraw
+		if (-1 == paper.getStatus())
+		{
+			XMLParser xp = new XMLParser("put");
+			xp.add("set", "this.Status", "-1");
+			String xmlBody = xp.getXML();
+			String url = domain + paper.getUri();
+			HttpHelper.SendHttpRequest("put", url, xmlBody);
+			return 0;
+		}
+		// edit
+//		else if (-2 == paper.getStatus())
+//		{}
+		return -1;
 	}
 }

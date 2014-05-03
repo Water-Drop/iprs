@@ -1,7 +1,7 @@
 /*
  * Author	: Zhou Cheng
  * Project	: iprs
- * Filename	: PaperCreate.java
+ * Filename	: PaperEdit.java
  * Date		: May 3, 2014
  */
 package servlet;
@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.ejb.EJB;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,27 +21,28 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Paper;
-import model.Authors;
-import model.Keywords;
 import ejb.PaperBean;
 
-@WebServlet("/PaperServlet")
-public class PaperCreate extends HttpServlet {
+@WebServlet("/PaperEdit")
+public class PaperEdit extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
-    public PaperCreate() {
+	@EJB
+	PaperBean paperBean;
+	
+    public PaperEdit() {
         super();
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		processRequest(request, response);
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String pid = request.getParameter("pid");
+		Paper paper = paperBean.get(pid);
+		RequestDispatcher rd = request.getRequestDispatcher("paperEdit.jsp");
+		request.setAttribute("paper", paper);
+		rd.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		processRequest(request, response);
-	}
-
-	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Paper
 		Paper paper = new Paper();
 		String title = request.getParameter("title");
@@ -98,36 +101,7 @@ public class PaperCreate extends HttpServlet {
         	return ;
 		}
 		paper.setLocation(location);
-		// Authors 0-3
-		List<Authors> as = new ArrayList<Authors>();
-		for (int i = 0; i < 4; i ++)
-		{
-			String para = "author" + String.valueOf(i);
-			String author = request.getParameter(para);
-			if (author != null)
-			{
-				Authors au = new Authors();
-				au.setName(author);
-				au.setIdentity(i);
-				as.add(au);
-			}
-		}
-		// Keywords 0-2
-		List<Keywords> ks = new ArrayList<Keywords>();
-		for (int i = 0; i < 3; i ++)
-		{
-			String para = "keyword" + String.valueOf(i);
-			String keyword = request.getParameter(para);
-			if (keyword != null)
-			{
-				Keywords k = new Keywords();
-				k.setKeyword(keyword);
-				ks.add(k);
-			}
-		}
-		PaperBean paperBean = new PaperBean();
-		int result = paperBean.add(paper, as, ks);
-		if (0 == result)
+		if (0 == paperBean.edit(paper))
 		{
 			PrintWriter out = response.getWriter();
 			out.write("Success.");
