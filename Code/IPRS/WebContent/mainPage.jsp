@@ -49,9 +49,17 @@ body {
 		var pMain = document.getElementById("pMain");
 		var pSubmit = document.getElementById("pSubmit");
 		var pStatus = document.getElementById("pStatus");
+		var pModify = document.getElementById("pModify");
+		var pRegret = document.getElementById("pRegret");
+		var pReview = document.getElementById("pReview");
+		var pSeeAll = document.getElementById("pSeeAll");
 		pMain.style.visibility = "hidden";
 		pSubmit.style.visibility = "hidden";
 		pStatus.style.visibility = "hidden";
+		pModify.style.visibility = "hidden";
+		pRegret.style.visibility = "hidden";
+		pReview.style.visibility = "hidden";
+		pSeeAll.style.visibility = "hidden";
 		if (x.id == "actMain")
 			{
 				pMain.style.visibility = "visible";	
@@ -63,6 +71,22 @@ body {
 		else if (x.id == "actStatus")
 		{
 			pStatus.style.visibility = "visible";
+		}			
+		else if (x.id == "actModify")
+		{
+			pModify.style.visibility = "visible";
+		}			
+		else if (x.id == "actRegret")
+		{
+			pRegret.style.visibility = "visible";
+		}			
+		else if (x.id == "actReview")
+		{
+			pReview.style.visibility = "visible";
+		}			
+		else if (x.id == "actSeeAll")
+		{
+			pSeeAll.style.visibility = "visible";
 		}			
 		}
 </script>
@@ -112,10 +136,16 @@ body {
 				<h1>此处应有个人信息</h1>
 				<h1>但是论文投稿人的个人信息并不重要</h1>
 				<h1>不论如何，欢迎来到IRPS</h1>
+				<h1>欢迎你，用户${user.username}</h1>
+				<h1>你的Uri是 ${user.uri}</h1>
 			</div>
 		</div>
 		<iframe src="paperSubmit.jsp" id="pSubmit" class="pIFrame isHidden"></iframe>
 		<iframe src="paperStatus.jsp" id="pStatus" class="pIFrame isHidden"></iframe>
+		<iframe src="paperModify.jsp" id="pModify" class="pIFrame isHidden"></iframe>
+		<iframe src="paperRegret.jsp" id="pRegret" class="pIFrame isHidden"></iframe>
+		<iframe src="paperReview.jsp" id="pReview" class="pIFrame isHidden"></iframe>
+		<iframe src="paperSeeAll.jsp" id="pSeeAll" class="pIFrame isHidden"></iframe>
 	</div>
 </body>
 </html>

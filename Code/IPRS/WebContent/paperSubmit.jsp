@@ -10,6 +10,7 @@ function pSubmit() {
 	var pTitle = document.getElementById("pTitle");
 	var abstr = document.getElementById("pAbstract");
 	var pCid = document.getElementById("pConf");
+	var uId = document.getElementById("uri").value.replace("iprs/Papers/", "");
 	var kywrd0 = document.getElementById("pKeyword0");
 	var kywrd1 = document.getElementById("pKeyword1");
 	var kywrd2 = document.getElementById("pKeyword2");
@@ -21,6 +22,7 @@ function pSubmit() {
 			{
 			title:pTitle.value,
 			abstra:abstr.value,
+			uid:uId,
 			cid:pCid.value,
 			author0:pAuthor0.value,
 			author1:pAuthor1.value,
@@ -100,7 +102,7 @@ function callback(realName,saveName,maxSize){
 				<td>论文上传：<input type="hidden" name="photo" id="photo_"></input><input type="button" onclick="openUpload_()" value="上传"/></td>
 			</tr>
 			<tr>
-				<td><input type="submit" onclick="pSubmit();"></td>
+				<td><input type="hidden" id="uri" value="${user.uri}"><input type="button" value="提交" onclick="pSubmit();"></td>
 			</tr>
 		</table>
 	</form>
