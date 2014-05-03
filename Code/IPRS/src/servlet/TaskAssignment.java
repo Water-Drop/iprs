@@ -19,12 +19,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ejb.TaskBean;
-import ejb.PaperBean;
-import ejb.UserBean;
-import model.Task;
 import model.Paper;
+import model.Task;
 import model.User;
+import ejb.PaperBean;
+import ejb.TaskBean;
+import ejb.UserBean;
 
 @WebServlet("/TaskAssignment")
 public class TaskAssignment extends HttpServlet {
@@ -42,6 +42,7 @@ public class TaskAssignment extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<User> users = ub.getAllUsers();
 		request.setAttribute("userlist", users);
+		System.out.println(users);
 		List<Paper> papers = pb.getAll();
 		for (int i = 0, j = papers.size(); i < j; i++){
 			if (papers.get(i).getStatus() < 0){

@@ -30,8 +30,10 @@ public class PaperSearch extends HttpServlet {
 	private String pStatus(int s) {
 		if (0 == s)
 			return "论文待审核";
+		else if (-10 == s)
+			return "论文已撤回";
 		else if (0 > s)
-			return "论文在第" + s + "轮审核后等待用户修改";
+			return "论文在第" + (0-s) + "轮审核后冻结，等待用户修改";
 		else if (10 == s)
 			return "已通过";
 		else
@@ -62,7 +64,7 @@ public class PaperSearch extends HttpServlet {
 			} else {
 
 				out.println("<table>");
-				out.println("<tr><td>用户ID</td><td>论文题目</td><td>论文概要</td><td>论文状态</td><td>修改论文</td></tr>");
+				out.println("<tr><td>用户ID</td><td>论文题目</td><td>论文概要</td><td>论文状态</td><td>修改论文</td><td>撤回论文</td></tr>");
 				for (int i = 0; i < pList.size(); i++)
 					out.println("<tr><td>"
 							+ pList.get(i).getUid()
@@ -74,7 +76,10 @@ public class PaperSearch extends HttpServlet {
 							+ pStatus(pList.get(i).getStatus())
 							+ "</td><td><input type=\"button\" onclick=\"modifyPaper('"
 							+ pList.get(i).getUri() + "', '"
-							+ pList.get(i).getStatus() + "')\" value=\"修改\">"
+							+ pList.get(i).getStatus()
+							+ "')\" value=\"修改\"></td><td>"
+							+ "<input type=\"button\" onclick=\"regretPaper('"
+							+ pList.get(i).getUri() + "');\" value=\"撤下\">"
 							+ "</td></tr>");
 				out.println("</table>");
 			}

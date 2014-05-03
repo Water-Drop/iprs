@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.Conference;
 import model.User;
+import ejb.ConferenceBean;
 import ejb.RoleBean;
 import ejb.UserBean;
-import ejb.ConferenceBean;
 
 /**
  * Servlet implementation class RoleServlet

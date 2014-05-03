@@ -1,8 +1,8 @@
 /*
- * Author	: Zhou Cheng
+ * Author	: Zhou Cheng, Su Ziyue
  * Project	: iprs
  * Filename	: PaperEdit.java
- * Date		: May 3, 2014
+ * Date		: 2014-5-4
  */
 package servlet;
 
@@ -42,6 +42,7 @@ public class PaperEdit extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Paper
+		System.out.println("Processing Post requese for PAPEREDIT");
 		Paper paper = new Paper();
 		String uri = request.getParameter("uri");
 		paper.setUri(uri);
@@ -74,7 +75,7 @@ public class PaperEdit extends HttpServlet {
 		paper.setStatus(Integer.parseInt(status));
 		Date lmTime = new Date();
 		paper.setLMTime(lmTime);
-		String location = request.getParameter("loc");
+		String location = request.getParameter("locate");
 		if (location == null) {
 			PrintWriter out = response.getWriter();
 			out.write("Error : Loc is empty.");
@@ -83,6 +84,8 @@ public class PaperEdit extends HttpServlet {
         	return ;
 		}
 		paper.setLocation(location);
+		System.out.println("New Title is " + title);
+		System.out.println("New Abstract is " + abstra);
 		if (0 == paperBean.edit(paper))
 		{
 			PrintWriter out = response.getWriter();
