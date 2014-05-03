@@ -33,12 +33,13 @@ public class PaperBean {
 		String uri = xp.getPostCreated(resultXML);
 		paper.setUri(uri.replaceAll(domain, ""));
 		System.out.println(paper.getUri()); // console
+		String pId = paper.getUri().replaceFirst("iprs/Papers/", "");
 		// Authors
 		url = domain + "iprs/Authors/";
 		for (int i = 0, j = as.size(); i < j; i ++)
 		{
 			Authors a = as.get(i);
-			a.setPid(paper.getUri());
+			a.setPid(pId);
 			xp = new XMLParser("post");
 			xp.add("set", "this.Name", a.getName());
 			xp.add("set", "this.Pid", a.getPid());
@@ -50,7 +51,7 @@ public class PaperBean {
 		for (int i = 0, j = ks.size(); i < j; i ++)
 		{
 			Keywords k = ks.get(i);
-			k.setPid(paper.getUri());
+			k.setPid(pId);
 			xp = new XMLParser("post");
 			xp.add("set", "this.Name", k.getKeyword());
 			xp.add("set", "this.Pid", k.getPid());
