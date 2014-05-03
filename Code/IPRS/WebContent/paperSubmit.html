@@ -3,8 +3,44 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script src="js/jquery-2.1.0.js"></script>
+<script type="text/javascript">
+function pSubmit() {
+	var title = document.getElementById("pTitle");
+	var abstr = document.getElementById("pAbstract");
+	var kywrd0 = document.getElementById("pKeyword0");
+	var kywrd1 = document.getElementById("pKeyword1");
+	var kywrd2 = document.getElementById("pKeyword2");
+	var author0 = document.getElementById("pAuthor0");
+	var author1 = document.getElementById("pAuthor1");
+	var author2 = document.getElementById("pAuthor2");
+	var author3 = document.getElementById("pAuthor3");
+	$.post("paperSubmit",
+			{
+			title:title;
+			abstra:abstr;
+			keyword:kywrd;
+			
+			})
+	}
+</script>
 </head>
 <body>
-
-</body>
+	<form id="paperForm">
+	<table>
+		<tr><td>标题　　：<input id="pTitle" type="text" class="pSubmit-Title"></td></tr>
+		<tr><td>投稿会议：<input id="pConf" type="text" class="pSubmit-Title"></td></tr>
+		<tr><td>概要　　：<textarea id="pAbstract" rows="5" class="pSubmit-Abstract"></textarea></td></tr>
+		<tr><td>关键词1 ：<input id="pKeyword0" type="text" class="pSubmit-Title"></td></tr>
+		<tr><td>关键词2 ：<input id="pKeyword1" type="text" class="pSubmit-Title"></td></tr>
+		<tr><td>关键词3 ：<input id="pKeyword2" type="text" class="pSubmit-Title"></td></tr>
+		<tr><td>通讯作者：<input id="pAuthor0" class="pSubmit-Author"></td></tr>
+		<tr><td>第一作者：<input id="pAuthor1" class="pSubmit-Author"></td></tr>
+		<tr><td>第二作者：<input id="pAuthor2" class="pSubmit-Author"></td></tr>
+		<tr><td>第三作者：<input id="pAuthor3" class="pSubmit-Author"></td></tr>
+		<tr><td><input type="submit" onclick="pSubmit();"></td></tr>
+	</table>
+	</form>
+	</body>
 </html>

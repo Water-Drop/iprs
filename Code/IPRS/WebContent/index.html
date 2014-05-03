@@ -31,7 +31,7 @@ body {
 		$.post("Register",
 				{
 				type:"check",
-				username:usn
+				username:usn.value
 				},
 				function(data,status){
 					if (data.trim() == "success"){
@@ -52,9 +52,9 @@ body {
 		$.post("Register",
 				{
 				type:"register",
-				username:usn,
-				password:psw,
-				email:eml
+				username:usn.value,
+				password:psw.value,
+				email:eml.value
 				})
 		}
 	function login() {
@@ -63,8 +63,8 @@ body {
 		$.post("Register",
 				{
 				type:"login",
-				username:usn,
-				password:psw
+				username:usn.value,
+				password:psw.value
 				})
 		}
 	function isSamePassword(){		
@@ -161,7 +161,7 @@ body {
 				</tbody>
 			</table>
 			<form name="registerForm" method="post">
-				<input name="username" id="rUsername" type="text" class="inputFieldStyle iField1" onblur="isValidUsername();">
+				<input id="rUsername" type="text" class="inputFieldStyle iField1" onblur="isValidUsername();">
 				<input id="rPassword" type="password" class="inputFieldStyle iField2" onblur="isSamePassword();"> 
 				<input id="checkPassword" type="password" class="inputFieldStyle iField3" onblur="isSamePassword();">  
 				<input id="email" type="text" class="inputFieldStyle iField4"> 

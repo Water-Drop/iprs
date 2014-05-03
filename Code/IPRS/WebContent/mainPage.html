@@ -46,6 +46,19 @@ body {
 		actSeeAll.setAttribute("onmouseout", "mouseOutButton(this);");
 		x.style.background = hlc;
 		x.onmouseout=null;
+		var pMain = document.getElementById("pMain");
+		var pSubmit = document.getElementById("pSubmit");
+		pMain.style.visibility = "hidden";
+		pSubmit.style.visibility = "hidden";
+		if (x.id == "actMain")
+			{
+				pMain.style.visibility = "visible";	
+			}
+		else if (x.id == "actSubmit")
+			{
+				pSubmit.style.visibility = "visible";
+			}
+			
 		}
 </script>
 </head>
@@ -90,13 +103,12 @@ body {
 			</div>
 		</div>
 		<div class="actArea c5">
-			<div class="pInfo">
+			<div id="pMain" class="pInfo">
 				<h1>此处应有个人信息</h1>
 				<h1>但是论文投稿人的个人信息并不重要</h1>
 				<h1>不论如何，欢迎来到IRPS</h1>
 			</div>
-			<div id="otherArea" class="otherActArea isHidden">
-			</div>
+			<iframe src="paperSubmit.html" id="pSubmit" class="pSubmit-Area isHidden"></iframe>
 		</div>
 	</div>
 </body>
