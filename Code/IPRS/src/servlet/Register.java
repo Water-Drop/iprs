@@ -40,7 +40,7 @@ public class Register extends HttpServlet {
 
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String type = request.getParameter("type");
-		if (type.equals("check"))
+		if ("check".equals(type))
 		{
 			String username = request.getParameter("username");
 			StringBuffer sb = new StringBuffer("");
@@ -56,7 +56,7 @@ public class Register extends HttpServlet {
 	        out.write(sb.toString());
 	        out.close();
 		}
-		else if (type.equals("login"))
+		else if ("login".equals(type))
 		{
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
@@ -74,7 +74,7 @@ public class Register extends HttpServlet {
 				rd.forward(request, response);
 			}
 		}
-		else if (type.equals("register"))
+		else if ("register".equals(type))
 		{
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
