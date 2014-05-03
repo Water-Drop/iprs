@@ -43,7 +43,7 @@ private String domain = "http://59.78.3.25:8080/RMP/Entity/";
 			xp.add("set", "this.Status", "0");
 			String xmlBody = xp.getXML();
 			url = domain + "iprs/Task/";
-			HttpHelper.SendHttpRequest("put", url, xmlBody);
+			HttpHelper.SendHttpRequest("post", url, xmlBody);
 		}
 		return 0;
 	}
