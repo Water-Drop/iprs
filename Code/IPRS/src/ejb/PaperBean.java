@@ -6,6 +6,8 @@
  */
 package ejb;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -32,7 +34,8 @@ public class PaperBean {
 		xp.add("set", "this.Abstract", paper.getAbstract());
 		xp.add("set", "this.Cid", paper.getCid());
 		xp.add("set", "this.Status", paper.getStatus().toString());
-		xp.add("set", "this.LMTime", paper.getLMTime().toString());
+		SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
+		xp.add("set", "this.LMTime", fmt.format(paper.getLMTime()));
 		xp.add("set", "this.Uid", paper.getUid());
 		xp.add("set", "this.Location", paper.getLocation());
 		String resultXML = HttpHelper.SendHttpRequest("post", url, xp.getXML());
