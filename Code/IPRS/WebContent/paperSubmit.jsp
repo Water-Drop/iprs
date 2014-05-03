@@ -40,20 +40,16 @@ function pSubmit() {
 	}
 
 function uploadFile() {
+	var path = document.getElementById("file").value;
+    var arr = path.split("\\");
+    loc = arr[arr.length - 1];
     $.ajaxFileUpload({
         url: "http://test.ldsink.com/api/File",
         secureuri: false,
         fileElementId: 'file',
         dataType: 'xml',
-        success: function (data) {
-        	var str = data.getElementsByTagName("string");
-            var text = str[0].firstChild.nodeValue;
-        	loc = text;
-        	document.getElementById("file").value = loc;
-        },
-        error: function (data) {
-            alert("论文上传失败！");
-        },
+        success: function (data) {},
+        error: function (data) {},
     });
 }
 
