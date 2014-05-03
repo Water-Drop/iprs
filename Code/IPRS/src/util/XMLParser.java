@@ -1,10 +1,6 @@
 package util;
 
 import java.io.StringReader;
-import java.util.ArrayList;
-import java.util.List;
-
-import model.User;
 
 import org.jdom2.Document;
 import org.jdom2.Element;
