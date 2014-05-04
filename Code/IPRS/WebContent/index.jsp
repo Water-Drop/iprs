@@ -36,7 +36,14 @@ body {
 				},
 				function(data,status){
 					if (data.trim() == "success"){
-						window.location.href="mainPage.jsp";
+						if (usn.value == "admin")
+							window.location.href="AdminPage.jsp";
+						else if (usn.value == "editor")
+							window.location.href="EditorPage.jsp";
+						else if (usn.value == "chairman")
+							window.location.href="chairman.jsp";
+						else
+							window.location.href="mainPage.jsp";
 						}
 					else{
 						alert("µÇÂ¼Ê§°Ü");

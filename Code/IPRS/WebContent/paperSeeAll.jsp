@@ -9,19 +9,15 @@
 <link rel="stylesheet" type="text/css" href="style.css" />
 <script src="js/jquery-2.1.0.js"></script>
 <script type="text/javascript">
-$.post("PaperSearch",
-		{
-		type:"getAll",
-		},
-		function(data)
-		{
-			document.getElementById("AllPaper").innerHTML = data.trim();
-			});
+	$.post("PaperSearch", {
+		type : "getAll",
+	}, function(data) {
+		document.getElementById("AllPaper").innerHTML = data.trim();
+	});
 </script>
 </head>
 <body>
-<input type="hidden" id="uri" value="${user.uri}" >
-<div id = "AllPaper">
-</div>
+	<input type="hidden" id="uri" value="${user.uri}">
+	<div id="AllPaper"></div>
 </body>
 </html>

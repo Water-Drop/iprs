@@ -27,17 +27,20 @@ body {
 		var actSubmit = document.getElementById("actSubmit"); 
 		var actStatus = document.getElementById("actStatus"); 
 		var actReview = document.getElementById("actReview");
-		var actSeeAll = document.getElementById("actSeeAll"); 
+		var actSeeAll = document.getElementById("actSeeAll");
+		var actSearch = document.getElementById("actSeeAll");
 		actMain.style.background = bgc;
 		actSubmit.style.background = bgc;
 		actStatus.style.background = bgc;
 		actReview.style.background = bgc;
 		actSeeAll.style.background = bgc;
+		actSearch.style.background = bgc;
 		actMain.setAttribute("onmouseout", "mouseOutButton(this);");
 		actSubmit.setAttribute("onmouseout", "mouseOutButton(this);");
 		actStatus.setAttribute("onmouseout", "mouseOutButton(this);");
 		actReview.setAttribute("onmouseout", "mouseOutButton(this);");
 		actSeeAll.setAttribute("onmouseout", "mouseOutButton(this);");
+		actSearch.setAttribute("onmouseout", "mouseOutButton(this);");
 		x.style.background = hlc;
 		x.onmouseout=null;
 		var pMain = document.getElementById("pMain");
@@ -45,11 +48,13 @@ body {
 		var pStatus = document.getElementById("pStatus");
 		var pReview = document.getElementById("pReview");
 		var pSeeAll = document.getElementById("pSeeAll");
+		var pSearch = document.getElementById("pSearch");
 		pMain.style.visibility = "hidden";
 		pSubmit.style.visibility = "hidden";
 		pStatus.style.visibility = "hidden";
 		pReview.style.visibility = "hidden";
 		pSeeAll.style.visibility = "hidden";
+		pSearch.style.visibility = "hidden";
 		if (x.id == "actMain")
 			{
 				pMain.style.visibility = "visible";	
@@ -69,6 +74,10 @@ body {
 		else if (x.id == "actSeeAll")
 		{
 			pSeeAll.style.visibility = "visible";
+		}			
+		else if (x.id == "actSearch")
+		{
+			pSearch.style.visibility = "visible";
 		}			
 		}
 </script>
@@ -103,8 +112,8 @@ body {
 			<div id="actSeeAll" class="prAct-Title cBackground1" onmouseover="mouseOnButton(this);" onmouseout="mouseOutButton(this);" onclick="mouseClick(this);">
 				<h2>所有论文</h2>
 			</div>
-			<div class="prAct-Title cBackground1 isHidden" onmouseover="mouseOnButton(this);" onmouseout="mouseOutButton(this);">
-				<h2>主席任务?</h2>
+			<div id="actSearch" class="prAct-Op cBackground1" onmouseover="mouseOnButton(this);" onmouseout="mouseOutButton(this);" onclick="mouseClick(this);">
+					<h3>搜索论文</h3>
 			</div>
 		</div>
 		<div class="actArea c5">
@@ -120,6 +129,7 @@ body {
 		<iframe src="paperStatus.jsp" id="pStatus" class="pIFrame isHidden"></iframe>
 		<iframe src="paperReview.jsp" id="pReview" class="pIFrame isHidden"></iframe>
 		<iframe src="paperSeeAll.jsp" id="pSeeAll" class="pIFrame isHidden"></iframe>
+		<iframe src="paperSearch.jsp" id="pSearch" class="pIFrame isHidden"></iframe>
 	</div>
 </body>
 </html>
