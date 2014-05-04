@@ -44,7 +44,7 @@ public class TaskAssignment extends HttpServlet {
 		request.setAttribute("userlist", users);
 		System.out.println(users);
 		List<Paper> papers = pb.getAll();
-		for (int i = 0, j = papers.size(); i < j; i++){
+		for (int i = 0, j = papers.size()-1; i < j; i++){
 			if (papers.get(i).getStatus() < 0){
 				papers.remove(i);
 			}

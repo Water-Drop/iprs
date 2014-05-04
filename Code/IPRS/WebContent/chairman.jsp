@@ -82,7 +82,7 @@ body {
 				<h1>ÄúµÄUriÊÇ ${user.uri}</h1>
 			</div>
 		</div>
-		<iframe src="AssignmentTask.jsp" id="cAssign" class="pIFrame isHidden"></iframe>
+		<iframe src="TaskAssignment" id="cAssign" class="pIFrame isHidden"></iframe>
 		<iframe src="finalReview.jsp" id="fReview" class="pIFrame isHidden"></iframe>
 	</div>
 </body>
