@@ -148,13 +148,6 @@ public class PaperBean {
 					papers.remove(i);
 				}
 			}
-		if (null != title){
-			for(int i = 0; i < papers.size(); i++){
-				if (papers.get(i).getTitle().contains(title) == false){
-					papers.remove(i);
-				}
-			}
-		}
 		if (null != abst){
 			for(int i = 0; i < papers.size(); i++){
 				if (papers.get(i).getAbstract().contains(abst) == false){

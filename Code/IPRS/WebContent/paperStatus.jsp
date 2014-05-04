@@ -5,6 +5,7 @@
 <title>论文查看</title>
 <link rel="stylesheet" type="text/css" href="style.css" />
 <script src="js/jquery-2.1.0.js"></script>
+<script type="text/javascript" src="js/AjaxFileUploader/ajaxfileupload.js"></script>
 <script type="text/javascript">
 	loc = null;
 	function allMyPaper() {
