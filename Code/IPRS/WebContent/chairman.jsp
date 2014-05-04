@@ -83,7 +83,7 @@ body {
 			</div>
 		</div>
 		<iframe src="AssignmentTask.jsp" id="cAssign" class="pIFrame isHidden"></iframe>
-		<iframe src="paperReview.jsp" id="fReview" class="pIFrame isHidden"></iframe>
+		<iframe src="finalReview.jsp" id="fReview" class="pIFrame isHidden"></iframe>
 	</div>
 </body>
 </html>
