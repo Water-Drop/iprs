@@ -14,6 +14,7 @@
 <%
     List<User> userlist = (List<User>) request.getAttribute("userlist");
     List<Conference> conflist = (List<Conference>) request.getAttribute("conflist");
+    out.print("<p>Select User:</p><br/>");
     out.print("<select id=\"userselect\">");
     if (userlist != null) {
         for(int i=0, j=userlist.size(); i<j; i++) {
@@ -23,6 +24,7 @@
        
         }
     out.print("</select>");
+    out.print("<p>Select Conference:</p><br/>");
     out.print("<select id=\"confselect\">");
     if (conflist != null) {
         for(int i=0, j=conflist.size(); i<j; i++) {

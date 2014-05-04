@@ -14,6 +14,7 @@
 <% 
 	List<User> userlist = (List<User>) request.getAttribute("userlist");
     List<Paper> paperlist = (List<Paper>) request.getAttribute("paperlist");
+    out.print("<p>Select Paper:</p><br/>");
     out.print("<select id=\"paperselect\">");
     if (paperlist != null) {
         for(int i=0, j=paperlist.size(); i<j; i++) {

@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1>It's page for add a new conference.</h1>
 <form method=post action="Conference">
 	<p>Name:</p>
 	<p><input title="Name" type="text" name="name" size="25"></p>
@@ -20,5 +21,6 @@
     <p><textarea rows="10" cols="25" name="description"></textarea></p>
     <input type="submit" value="Submit">  
 </form>
+<a href = AdminPage.jsp>Back</a>
 </body>
 </html>
