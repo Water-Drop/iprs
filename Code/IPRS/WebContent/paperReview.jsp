@@ -7,7 +7,7 @@
 <script src="js/jquery-2.1.0.js"></script>
 <script type="text/javascript">
 	function allMyReview() {
-		$.post("PaperReview",{type:"review"} function(data) {
+		$.post("PaperReview",{type:"review"},function(data) {
 			var x = document.getElementById("reviewInfo");
 			x.innerHTML = data.trim();
 		});
