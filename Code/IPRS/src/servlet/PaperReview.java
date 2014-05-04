@@ -45,7 +45,6 @@ public class PaperReview extends HttpServlet {
 	protected void processRequest(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
-		System.out.println("Processing Paper Review Infos.");
 
 		User user = (User) request.getSession().getAttribute("user");
 		String uid = user.getUri().replaceAll("iprs/User/", "");

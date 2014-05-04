@@ -36,6 +36,8 @@ public class PaperSearch extends HttpServlet {
 			return "论文在第" + (0-s) + "轮审核后冻结，等待用户修改";
 		else if (10 == s)
 			return "已通过";
+		else if (9 == s)
+			return "未通过";
 		else
 			return "论文等待第" + (s + 1) + "轮审核";
 	}
@@ -54,6 +56,7 @@ public class PaperSearch extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		String type = request.getParameter("type");
 		response.setContentType("text/html;charset=UTF-8");
+		System.out.println("Searching Some Paper");
 		if ("getUid".equals(type)) {
 			PaperBean paperBean = new PaperBean();
 			String uid = request.getParameter("uid");
@@ -90,7 +93,7 @@ public class PaperSearch extends HttpServlet {
 			if (0 == pList.size()) {
 				out.println("Sad :( <br> No more paper");
 			} else {
-
+				out.println("<h1>全部论文</h1>");
 				out.println("<table>");
 				out.println("<tr><td>用户ID</td><td>论文题目</td><td>论文概要</td><td>论文状态</td></tr>");
 				for (int i = 0; i < pList.size(); i++)
@@ -112,7 +115,7 @@ public class PaperSearch extends HttpServlet {
 			if (0 == pList.size()) {
 				out.println("Sad :( <br> No more paper");
 			} else {
-
+				out.println("<h1>符合条件的论文</h1>");
 				out.println("<table>");
 				out.println("<tr><td>用户ID</td><td>论文题目</td><td>论文概要</td><td>论文状态</td></tr>");
 				for (int i = 0; i < pList.size(); i++)
