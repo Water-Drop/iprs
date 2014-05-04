@@ -62,7 +62,6 @@ public class PaperSearch extends HttpServlet {
 			if (0 == pList.size()) {
 				out.println("Sad :( <br> No more paper");
 			} else {
-
 				out.println("<table>");
 				out.println("<tr><td>用户ID</td><td>论文题目</td><td>论文概要</td><td>论文状态</td><td>修改论文</td><td>撤回论文</td></tr>");
 				for (int i = 0; i < pList.size(); i++)
@@ -84,7 +83,6 @@ public class PaperSearch extends HttpServlet {
 				out.println("</table>");
 			}
 			out.close();
-
 		} else if ("getAll".equals(type)) {
 			PaperBean paperBean = new PaperBean();
 			List<Paper> pList = paperBean.getAll();
@@ -104,7 +102,28 @@ public class PaperSearch extends HttpServlet {
 				out.println("</table>");
 			}
 			out.close();
+		} else if ("search".equals(type)) {
+			PaperBean pvb = new PaperBean();
+			String title = request.getParameter("title");
+			String abst = request.getParameter("abst");
+			String author = request.getParameter("author");
+			List<Paper> pList = pvb.getPaperbyCondition(title, abst, author);
+			PrintWriter out = response.getWriter();
+			if (0 == pList.size()) {
+				out.println("Sad :( <br> No more paper");
+			} else {
 
+				out.println("<table>");
+				out.println("<tr><td>用户ID</td><td>论文题目</td><td>论文概要</td><td>论文状态</td></tr>");
+				for (int i = 0; i < pList.size(); i++)
+					out.println("<tr><td>" + pList.get(i).getUid()
+							+ "</td><td>" + pList.get(i).getTitle()
+							+ "</td><td>" + pList.get(i).getAbstract()
+							+ "</td><td>" + pStatus(pList.get(i).getStatus())
+							+ "</td></tr>");
+				out.println("</table>");
+			}
+			out.close();
 		}
 	}
 }
