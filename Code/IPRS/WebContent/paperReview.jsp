@@ -6,6 +6,7 @@
 <link rel="stylesheet" type="text/css" href="style.css" />
 <script src="js/jquery-2.1.0.js"></script>
 <script type="text/javascript">
+	var flag;
 	function allMyReview() {
 		$.post("PaperReview", {type:"review"}, function(data) {
 			var x = document.getElementById("reviewInfo");
@@ -14,6 +15,13 @@
 	}
 	function review(tid) {
 		document.getElementById("cTid").value = tid;
+		$.get("Comment", 
+				{
+			type:"getTaskComment",
+			tid:tid},
+			function(data){
+				document.getElementById("cContent").innerHTML = data.trim();
+				});
 		document.getElementById("myComment").style.visibility = 'visible';
 		document.getElementById("reviewInfo").style.visibility = 'hidden';
 	}

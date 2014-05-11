@@ -29,6 +29,20 @@
 		x.style.visibility = "hidden";
 		pModif.style.visibility = "visible";
 	}
+	function pComment(pUri){
+		$.get("Comment",
+				{
+				type:"getPaperComment",
+				pid:pUri.replace("iprs/Papers/","")
+				},
+				function(data){
+					var pInfo = document.getElementById("paperInfo");
+					var pComment = document.getElementById("paperComments");
+					pInfo.style.visibility = "hidden";
+					pComment.style.visibility = "visible";
+					pComment.innerHTML = data.trim();
+					});
+		}
 	function mSubmit(){
 		var mTitle = document.getElementById("mTitle");
 		var mAbs = document.getElementById("mAbstract");
@@ -104,5 +118,6 @@
 			</table>
 		</form>
 	</div>
+	<div id="paperComments" class="position:absolute;top:0px; isHidden"></div>
 </body>
 </html>

@@ -56,7 +56,6 @@ public class PaperSearch extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		String type = request.getParameter("type");
 		response.setContentType("text/html;charset=UTF-8");
-		System.out.println("Searching Some Paper");
 		if ("getUid".equals(type)) {
 			PaperBean paperBean = new PaperBean();
 			String uid = request.getParameter("uid");
@@ -66,7 +65,7 @@ public class PaperSearch extends HttpServlet {
 				out.println("Sad :( <br> No more paper");
 			} else {
 				out.println("<table>");
-				out.println("<tr><td>用户ID</td><td>论文题目</td><td>论文概要</td><td>论文状态</td><td>修改论文</td><td>撤回论文</td></tr>");
+				out.println("<tr><td>用户ID</td><td>论文题目</td><td>论文概要</td><td>论文状态</td><td>修改论文</td><td>撤回论文</td><td>查看审核意见</td></tr>");
 				for (int i = 0; i < pList.size(); i++)
 					out.println("<tr><td>"
 							+ pList.get(i).getUid()
@@ -82,6 +81,9 @@ public class PaperSearch extends HttpServlet {
 							+ "')\" value=\"修改\"></td><td>"
 							+ "<input type=\"button\" onclick=\"regretPaper('"
 							+ pList.get(i).getUri() + "');\" value=\"撤下\">"
+							+ "</td><td>"
+							+ "<input type=\"button\" onclick=\"pComment('"
+							+ pList.get(i).getUri() + "');\" value=\"查看审核意见\">"
 							+ "</td></tr>");
 				out.println("</table>");
 			}
