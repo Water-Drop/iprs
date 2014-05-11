@@ -47,6 +47,7 @@ public class ConferenceServlet extends HttpServlet {
 		String field = request.getParameter("field");
 		String description = request.getParameter("description");
 		conf.add(name, begin, end, field, description);
+		request.getRequestDispatcher("AdminPage.jsp").forward(request,response);
 	}
 
 }
