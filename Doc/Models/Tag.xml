@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Resource isMaster="false"  isCompositedEntity="false">
+	<URI>iprs/Tag/{key}</URI>
+	<Name>Tag</Name>
+	<Description>Tag</Description>
+	<Based/>
+	<Attributes>
+		<Column>
+			<ColumnName>Pid</ColumnName>
+			<AttributeName>Pid</AttributeName>
+			<NotNull>no</NotNull>
+			<Size>100</Size>
+			<Type>String</Type>
+		</Column>
+		<Column>
+			<ColumnName>Tag</ColumnName>
+			<AttributeName>Tag</AttributeName>
+			<NotNull>no</NotNull>
+			<Size>50</Size>
+			<Type>String</Type>
+		</Column>
+	</Attributes>
+	<Conditions>
+	</Conditions>
+	<Composition>
+	</Composition>
+</Resource>

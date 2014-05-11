@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Resource isMaster="false"  isCompositedEntity="false">
+	<URI>iprs/User/{key}</URI>
+	<Name>User</Name>
+	<Description>User</Description>
+	<Based/>
+	<Attributes>
+		<Column>
+			<ColumnName>Username</ColumnName>
+			<AttributeName>Username</AttributeName>
+			<NotNull>no</NotNull>
+			<Size>50</Size>
+			<Type>String</Type>
+		</Column>
+		<Column>
+			<ColumnName>Password</ColumnName>
+			<AttributeName>Password</AttributeName>
+			<NotNull>no</NotNull>
+			<Size>50</Size>
+			<Type>String</Type>
+		</Column>
+		<Column>
+			<ColumnName>Email</ColumnName>
+			<AttributeName>Email</AttributeName>
+			<NotNull>no</NotNull>
+			<Size>100</Size>
+			<Type>String</Type>
+		</Column>
+	</Attributes>
+	<Conditions>
+	</Conditions>
+	<Composition>
+	</Composition>
+</Resource>

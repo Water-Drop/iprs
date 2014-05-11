@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Resource isMaster="false"  isCompositedEntity="false">
+	<URI>iprs/Authors/{key}</URI>
+	<Name>Authors</Name>
+	<Description>Authors</Description>
+	<Based/>
+	<Attributes>
+		<Column>
+			<ColumnName>Name</ColumnName>
+			<AttributeName>Name</AttributeName>
+			<NotNull>no</NotNull>
+			<Size>50</Size>
+			<Type>String</Type>
+		</Column>
+		<Column>
+			<ColumnName>Pid</ColumnName>
+			<AttributeName>Pid</AttributeName>
+			<NotNull>no</NotNull>
+			<Size>100</Size>
+			<Type>String</Type>
+		</Column>
+		<Column>
+			<ColumnName>Identity</ColumnName>
+			<AttributeName>Identity</AttributeName>
+			<NotNull>no</NotNull>
+			<Size></Size>
+			<Type>Integer</Type>
+		</Column>
+	</Attributes>
+	<Conditions>
+	</Conditions>
+	<Composition>
+	</Composition>
+</Resource>

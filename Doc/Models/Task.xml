@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Resource isMaster="false"  isCompositedEntity="false">
+	<URI>iprs/Task/{key}</URI>
+	<Name>Task</Name>
+	<Description>Task</Description>
+	<Based/>
+	<Attributes>
+		<Column>
+			<ColumnName>Pid</ColumnName>
+			<AttributeName>Pid</AttributeName>
+			<NotNull>no</NotNull>
+			<Size>100</Size>
+			<Type>String</Type>
+		</Column>
+		<Column>
+			<ColumnName>Uid</ColumnName>
+			<AttributeName>Uid</AttributeName>
+			<NotNull>no</NotNull>
+			<Size>100</Size>
+			<Type>String</Type>
+		</Column>
+		<Column>
+			<ColumnName>Order</ColumnName>
+			<AttributeName>Order</AttributeName>
+			<NotNull>no</NotNull>
+			<Size></Size>
+			<Type>Integer</Type>
+		</Column>
+		<Column>
+			<ColumnName>Status</ColumnName>
+			<AttributeName>Status</AttributeName>
+			<NotNull>no</NotNull>
+			<Size></Size>
+			<Type>Integer</Type>
+		</Column>
+	</Attributes>
+	<Conditions>
+	</Conditions>
+	<Composition>
+	</Composition>
+</Resource>

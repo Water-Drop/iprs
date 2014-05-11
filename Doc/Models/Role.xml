@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Resource isMaster="false"  isCompositedEntity="false">
+	<URI>iprs/Role/{key}</URI>
+	<Name>Role</Name>
+	<Description>Role</Description>
+	<Based/>
+	<Attributes>
+		<Column>
+			<ColumnName>Uid</ColumnName>
+			<AttributeName>Uid</AttributeName>
+			<NotNull>no</NotNull>
+			<Size>100</Size>
+			<Type>String</Type>
+		</Column>
+		<Column>
+			<ColumnName>Cid</ColumnName>
+			<AttributeName>Cid</AttributeName>
+			<NotNull>no</NotNull>
+			<Size>100</Size>
+			<Type>String</Type>
+		</Column>
+		<Column>
+			<ColumnName>Type</ColumnName>
+			<AttributeName>Type</AttributeName>
+			<NotNull>no</NotNull>
+			<Size></Size>
+			<Type>Integer</Type>
+		</Column>
+	</Attributes>
+	<Conditions>
+	</Conditions>
+	<Composition>
+	</Composition>
+</Resource>
