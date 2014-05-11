@@ -59,7 +59,7 @@ public class CommentBean {
 		List<Task> tasks = Task.parseXML(resultXML);
 		for (int i = 0, j = tasks.size(); i < j; i++) {
 			String tmp_url = domain + "iprs/Comment/?Comment.Tid="
-					+ tasks.get(i).getUri().replaceAll("/iprs/Task/", "");
+					+ tasks.get(i).getUri().replaceAll("iprs/Task/", "");
 			String tmpXML = HttpHelper.SendHttpRequest("get", tmp_url, null);
 			List<Comment> tmp_com = Comment.parseXML(tmpXML);
 			for (int k = 0; k < tmp_com.size(); k++) {
@@ -76,7 +76,7 @@ public class CommentBean {
 		List<Task> tasks = Task.parseXML(resultXML);
 		for (int i = 0, j = tasks.size(); i < j; i++) {
 			String tmp_url = domain + "iprs/Comment/?Comment.Tid="
-					+ tasks.get(i).getUri().replaceAll("/iprs/Task/", "");
+					+ tasks.get(i).getUri().replaceAll("iprs/Task/", "");
 			String tmpXML = HttpHelper.SendHttpRequest("get", tmp_url, null);
 			List<Comment> tmp_com = Comment.parseXML(tmpXML);
 			for (int k = 0; k < tmp_com.size(); k++) {
