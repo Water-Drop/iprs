@@ -1,26 +1,10 @@
-//public class Main {
-//
-//	public static void main(String[] args) {
-//		MailSenderInfo mailInfo = new MailSenderInfo();
-//		mailInfo.setMailServerHost("smtp.163.com");
-//		mailInfo.setMailServerPort("25");
-//		mailInfo.setValidate(true);
-//		mailInfo.setUserName("aixinwu_fd@163.com");
-//		mailInfo.setPassword("Financial");
-//		mailInfo.setFromAddress("aixinwu_fd@163.com");
-//		mailInfo.setToAddress("ldsink@163.com");
-//		mailInfo.setSubject("����");
-//		mailInfo.setContent("��ã������ʼ������ݣ�?);
-//
-//		MailSender.sendTextMail(mailInfo);
-//		MailSender.sendHtmlMail(mailInfo);
-//	}
-//
-//	public Main() {
-//		super();
-//	}
-//
-//}
+/*
+ * Author	: Zhou Cheng
+ * Project	: iprs
+ * Filename	: MailSender.java
+ * Date		: May 11, 2014
+ */
+
 package util;
 
 import java.util.Date;

@@ -2,9 +2,9 @@
  * Author	: Zhou Cheng & Su Ziyue
  * Project	: iprs
  * Filename	: Register.java
- * Date		: May 3, 2014
- * Data		: 2014-5-3
+ * Date		: May 11, 2014
  */
+
 package servlet;
 
 import java.io.IOException;
@@ -20,6 +20,7 @@ import javax.servlet.http.HttpSession;
 
 import model.User;
 import ejb.AccountBean;
+import ejb.MailBean;
 
 @WebServlet("/Register")
 public class Register extends HttpServlet {
@@ -66,7 +67,7 @@ public class Register extends HttpServlet {
 				PrintWriter out = response.getWriter();
 				out.write("success");
 				out.close();
-			}			
+			}
 		} else if ("register".equals(type)) {
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
@@ -75,8 +76,10 @@ public class Register extends HttpServlet {
 				User user = account.check(username, password);
 				if (user != null) {
 					HttpSession ses = request.getSession(true);
-					ses.setAttribute("username", username);
+					ses.setAttribute("user", user);
+					MailBean.registerInfo(user);
 				}
+
 				PrintWriter out = response.getWriter();
 				out.println("Register success");
 				out.close();
