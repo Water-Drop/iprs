@@ -37,8 +37,8 @@
 function add_tags(){
 	var pid = document.getElementById('paperselect').value;
 	var tag1 = document.getElementById('tag1').value;
-	var tag2 = document.getElementById('tag1').value;
-	var tag3 = document.getElementById('tag1').value;
+	var tag2 = document.getElementById('tag2').value;
+	var tag3 = document.getElementById('tag3').value;
 	$.post("Tag",
 		    {
 	          pid: pid,

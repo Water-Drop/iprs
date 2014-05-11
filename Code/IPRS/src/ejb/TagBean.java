@@ -1,7 +1,13 @@
 package ejb;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.ArrayList;
+
 import javax.ejb.Stateless;
 
+import model.Tag;
 import util.XMLParser;
 import util.HttpHelper;
 
@@ -19,5 +25,11 @@ public class TagBean {
 		// TODO Process resultXML
 		System.out.println(resultXML);
 		return ret;
+	}
+	public List<Tag> getTagbyPaper(String pid){
+		String url = domain + "iprs/Tag/?Tag.Pid=" + pid;
+		String resultXML = HttpHelper.SendHttpRequest("get", url, null);
+		List<Tag> ts = Tag.parseXML(resultXML);
+		return ts;
 	}
 }
