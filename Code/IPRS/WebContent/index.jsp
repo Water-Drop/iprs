@@ -35,19 +35,7 @@ body {
 				password:psw.value
 				},
 				function(data,status){
-					if (data.trim() == "success"){
-						if (usn.value == "admin")
-							window.location.href="AdminPage.jsp";
-						else if (usn.value == "editor")
-							window.location.href="EditorPage.jsp";
-						else if (usn.value == "chairman")
-							window.location.href="chairman.jsp";
-						else
-							window.location.href="mainPage.jsp";
-						}
-					else{
-						alert("µÇÂ¼Ê§°Ü");
-						}
+						window.location.href=data.trim();
 					})
 		}
 	function isValidUsername(){
@@ -82,10 +70,8 @@ body {
 				email:eml.value
 				},
 				function(data,status){
-					if (data.trim() != null)
-						{ alert(data.trim());}
-					}
-				)
+					window.location.href=data.trim();
+				})
 		}
 
 	function isSamePassword(){		

@@ -64,8 +64,15 @@ public class Register extends HttpServlet {
 			if (user != null) {
 				HttpSession ses = request.getSession(true);
 				ses.setAttribute("user", user);
+				String ret = "mainPage.jsp";
+				if ("admin".equals(user.getUsername()))
+					ret = "AdminPage.jsp";
+				else if ("editor".equals(user.getUsername()))
+					ret = "EditorPage.jsp";
+				else if ("chairman".equals(user.getUsername()))
+					ret = "chairman.jsp";
 				PrintWriter out = response.getWriter();
-				out.write("success");
+				out.write(ret);
 				out.close();
 			}
 		} else if ("register".equals(type)) {
@@ -78,17 +85,11 @@ public class Register extends HttpServlet {
 					HttpSession ses = request.getSession(true);
 					ses.setAttribute("user", user);
 					MailBean.registerInfo(user);
+					PrintWriter out = response.getWriter();
+					out.println("mainPage.jsp");
+					out.close();
 				}
-
-				PrintWriter out = response.getWriter();
-				out.println("Register success");
-				out.close();
-			} else {
-				PrintWriter out = response.getWriter();
-				out.println("Register fail");
-				out.close();
 			}
 		}
-		// other condition, do nothing
 	}
 }

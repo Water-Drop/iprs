@@ -64,6 +64,7 @@ public class CommentServlet extends HttpServlet {
 			int rate = Integer.parseInt(request.getParameter("rate"));
 			int confidence = Integer.parseInt(request.getParameter("confidence"));
 			com.add(tid, content, rate, confidence);
+			
 			PrintWriter out = response.getWriter();
 			out.println("Success!");
 			System.out.println("SUCCESS!");
@@ -80,5 +81,4 @@ public class CommentServlet extends HttpServlet {
 			
 		}
 	}
-
 }
